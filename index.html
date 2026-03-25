@@ -228,7 +228,7 @@
 
     .lightbox-fillup {
       position: absolute;
-      top: 80px;
+      bottom: 70px;
       left: 50%;
       transform: translateX(-50%);
       padding: 10px 24px;
@@ -241,6 +241,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: opacity 0.2s ease;
+      z-index: 1002;
     }
 
     .lightbox-fillup:hover {
@@ -248,8 +249,7 @@
     }
 
     .lightbox-fillup.hidden {
-      opacity: 0;
-      pointer-events: none;
+      display: none;
     }
   </style>
 </head>
@@ -651,7 +651,7 @@
       panX = 0;
       panY = 0;
       lightboxImg.classList.remove('zoomed');
-      lightboxFillup.classList.remove('hidden');
+      updateFillupButton();
       updateTransform();
     }
 
@@ -668,7 +668,9 @@
       }
       if (currentZoom > 1) {
         lightboxImg.classList.add('zoomed');
-        lightboxFillup.classList.add('hidden');
+        lightboxFillup.style.display = 'none';
+      } else {
+        updateFillupButton();
       }
       updateTransform();
     });
@@ -718,7 +720,7 @@
           } else {
             lightboxImg.classList.add('zoomed');
             currentZoom = 2;
-            lightboxFillup.classList.add('hidden');
+            lightboxFillup.style.display = 'none';
             updateTransform();
           }
         }
@@ -790,7 +792,7 @@
         } else {
           lightboxImg.classList.add('zoomed');
           currentZoom = 2;
-          lightboxFillup.classList.add('hidden');
+          lightboxFillup.style.display = 'none';
           updateTransform();
         }
       }
