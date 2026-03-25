@@ -396,11 +396,18 @@
       display: inline-block;
     }
 
-    .lightbox-main {
+    .lightbox-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
+    }
+
+    .lightbox-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .lightbox-img {
@@ -454,10 +461,7 @@
     }
 
     .lightbox-fillup {
-      position: absolute;
-      bottom: 90px;
-      left: 50%;
-      transform: translateX(-50%) skewX(-10deg);
+      transform: skewX(-10deg);
       padding: 10px 24px;
       font-size: 14px;
       font-weight: bold;
@@ -571,10 +575,11 @@
     }
 
     .lightbox-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
     }
 
     .lightbox-part {
@@ -595,14 +600,14 @@
   <div class="container" id="container"></div>
 
   <div class="lightbox" id="lightbox">
-    <div class="lightbox-main">
-      <span class="lightbox-close">&times;</span>
-      <span class="lightbox-prev">&#10094;</span>
-      <span class="lightbox-next">&#10095;</span>
+    <span class="lightbox-close">&times;</span>
+    <span class="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next">&#10095;</span>
+    <div class="lightbox-wrapper">
       <div class="lightbox-content">
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
       </div>
-      <div class="lightbox-info">
+      <div class="lightbox-bottom">
         <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
         <div class="lightbox-page" id="lightbox-page"></div>
       </div>
