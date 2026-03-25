@@ -436,11 +436,14 @@
 
           partDiv.appendChild(progressList);
 
-          const playBtn = document.createElement('button');
-          playBtn.className = 'play-btn';
-          playBtn.disabled = true;
-          playBtn.textContent = `PLAY PART ${part.order}`;
-          partDiv.appendChild(playBtn);
+          const partStatus = getPartStatus(part);
+          if (partStatus === 'complete') {
+            const playBtn = document.createElement('button');
+            playBtn.className = 'play-btn';
+            playBtn.disabled = true;
+            playBtn.textContent = `PLAY PART ${part.order}`;
+            partDiv.appendChild(playBtn);
+          }
         }
 
         container.appendChild(partDiv);
@@ -467,6 +470,14 @@
                 render();
               };
             }
+          }
+        } else if (!part.locked) {
+          const partStatus = getPartStatus(part);
+          const existingPlayBtn = document.querySelector(`#part-${part.order} .play-btn`);
+          if (partStatus === 'complete' && !existingPlayBtn) {
+            render();
+          } else if (partStatus !== 'complete' && existingPlayBtn) {
+            render();
           }
         }
       });
