@@ -281,8 +281,8 @@
     }
 
     @keyframes breath2 {
-      0% { transform: skewX(-10deg) scale(0.8) scaleX(1); }
-      100% { transform: skewX(-10deg) scale(0.8) scaleX(0.95); }
+      0% { transform: skewX(-10deg) scaleX(1); }
+      100% { transform: skewX(-10deg) scaleX(0.95); }
     }
 
     .play-btn {
@@ -382,36 +382,23 @@
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
       z-index: 1000;
     }
 
     .lightbox.active {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
       position: relative;
-      display: inline-block;
-    }
-
-    .lightbox-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .lightbox-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-top: 15px;
     }
 
     .lightbox-img {
-      max-width: 90vw;
+      max-width: 100%;
       max-height: 80vh;
       border-radius: 8px;
       transition: transform 0.2s ease;
@@ -461,7 +448,10 @@
     }
 
     .lightbox-fillup {
-      transform: skewX(-10deg);
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) skewX(-10deg);
       padding: 10px 24px;
       font-size: 14px;
       font-weight: bold;
@@ -501,14 +491,17 @@
       background: #3080ff;
     }
     
+    /* Make the lightbox fillup button also use futuristic styling */
     .lightbox-fillup.futuristic-btn {
       border: 1px solid green;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      transform: skewX(-10deg) scale(0.8);
+      transform: skewX(-10deg);
+      zoom: 1.5;
       height: 50px;
       width: 200px;
       border-radius: 20px 5px 20px 0px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -518,8 +511,9 @@
       text-shadow: 0 0 20px #fff;
       text-transform: uppercase;
       animation: breath2 2s 0.5s infinite alternate;
+      transition: all 0.2s ease;
       cursor: pointer;
-      padding: 0;
+      padding: 0; /* Remove default padding since we'll handle sizing differently */
     }
     
     .lightbox-fillup.futuristic-btn:before {
@@ -538,8 +532,14 @@
     
     .lightbox-fillup.futuristic-btn.fire {
       border-color: #ffeca8;
-      background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
-      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 138, 48, 0.8),
+        rgba(240, 96, 29, 0.8)
+      );
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
+        0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
+        inset 0 -1px #ffeca8;
       color: #ffeca8;
     }
     
@@ -547,31 +547,14 @@
       box-shadow: inset 0 0 30px 0 #ffeca8;
     }
     
-    .lightbox-fillup.futuristic-btn.ice {
-      border-color: #a8ecff;
-      background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.8), rgba(29, 96, 240, 0.8));
-      box-shadow: 0 0 70px rgba(48, 138, 255, 0.6), 0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
-      color: #a8ecff;
-    }
-    
-    .lightbox-fillup.futuristic-btn.ice:before {
-      box-shadow: inset 0 0 30px 0 #a8ecff;
-    }
-    
     .lightbox-fillup.futuristic-btn:hover.fire {
-      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
+        0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
+        inset 0 -1px #ffeca8;
     }
     
     .lightbox-fillup.futuristic-btn:hover.fire:before {
       box-shadow: inset 0 0 50px 0 #ffeca8;
-    }
-    
-    .lightbox-fillup.futuristic-btn:hover.ice {
-      box-shadow: 0 0 70px rgba(48, 138, 255, 0.75), 0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
-    }
-    
-    .lightbox-fillup.futuristic-btn:hover.ice:before {
-      box-shadow: inset 0 0 50px 0 #a8ecff;
     }
 
     .lightbox-info {
@@ -603,14 +586,13 @@
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
     <span class="lightbox-next">&#10095;</span>
-    <div class="lightbox-wrapper">
-      <div class="lightbox-content">
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
-      </div>
-      <div class="lightbox-bottom">
-        <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
-        <div class="lightbox-page" id="lightbox-page"></div>
-      </div>
+    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    </div>
+    <div class="lightbox-info">
+      <div class="lightbox-part" id="lightbox-part"></div>
+      <div class="lightbox-page" id="lightbox-page"></div>
     </div>
   </div>
 
@@ -804,7 +786,7 @@
           }
         } else if (!part.locked) {
           const partStatus = getPartStatus(part);
-          const existingPlayBtn = document.querySelector(`#part-${part.order} .futuristic-btn`);
+          const existingPlayBtn = document.querySelector(`#part-${part.order} .play-btn`);
           if (partStatus === 'complete' && !existingPlayBtn) {
             render();
           } else if (partStatus !== 'complete' && existingPlayBtn) {
@@ -851,7 +833,7 @@
       }
       
       lightboxImg.src = src;
-      lightboxPart.textContent = '';
+      lightboxPart.textContent = `PART ${data.parts[partIndex].order}`;
       lightboxPage.textContent = `Page ${page.order}`;
       resetZoom();
       updateFillupButton();
