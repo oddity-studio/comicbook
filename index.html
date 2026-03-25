@@ -838,7 +838,7 @@
       }
       
       lightboxImg.src = src;
-      lightboxPart.textContent = `PART ${data.parts[partIndex].order}`;
+      lightboxPart.textContent = '';
       lightboxPage.textContent = `Page ${page.order}`;
       resetZoom();
       updateFillupButton();
@@ -928,6 +928,8 @@
       panX = 0;
       panY = 0;
       lightboxImg.classList.remove('zoomed');
+      lightboxFillup.style.display = 'block';
+      lightboxPage.style.display = 'block';
       updateTransform();
     }
 
@@ -982,8 +984,10 @@
       if (currentZoom > 1) {
         lightboxImg.classList.add('zoomed');
         lightboxFillup.style.display = 'none';
+        lightboxPage.style.display = 'none';
       } else {
         lightboxFillup.style.display = 'block';
+        lightboxPage.style.display = 'block';
       }
       updateTransform();
     });
@@ -1034,6 +1038,7 @@
             lightboxImg.classList.add('zoomed');
             currentZoom = 2;
             lightboxFillup.style.display = 'none';
+            lightboxPage.style.display = 'none';
             updateTransform();
           }
         }
@@ -1080,10 +1085,12 @@
         if (currentZoom > 1) {
           lightboxImg.classList.add('zoomed');
           lightboxFillup.style.display = 'none';
+          lightboxPage.style.display = 'none';
         } else {
           panX = 0;
           panY = 0;
           lightboxFillup.style.display = 'block';
+          lightboxPage.style.display = 'block';
         }
         updateTransform();
       } else if (e.touches.length === 1 && currentZoom > 1) {
@@ -1108,6 +1115,7 @@
           lightboxImg.classList.add('zoomed');
           currentZoom = 2;
           lightboxFillup.style.display = 'none';
+          lightboxPage.style.display = 'none';
           updateTransform();
         }
       }
