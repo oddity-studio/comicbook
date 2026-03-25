@@ -167,7 +167,7 @@
       color: #aaa;
       letter-spacing: 2px;
       text-align: center;
-      flex: 1;
+      min-width: 80px;
       font-weight: bold;
     }
 
@@ -519,11 +519,6 @@
             const pageDiv = document.createElement('div');
             pageDiv.className = 'progress-item';
 
-            const pageCaption = document.createElement('div');
-            pageCaption.className = 'page-caption';
-            pageCaption.textContent = `PAGE ${page.order}`;
-            pageDiv.appendChild(pageCaption);
-
             const progressHeader = document.createElement('div');
             progressHeader.className = 'progress-header';
 
@@ -544,8 +539,14 @@
             img.dataset.max = page.cap;
             progressHeader.appendChild(img);
 
+            const pageCaption = document.createElement('div');
+            pageCaption.className = 'page-caption';
+            pageCaption.textContent = `PAGE ${page.order}`;
+            progressHeader.appendChild(pageCaption);
+
             const barContainer = document.createElement('div');
             barContainer.className = 'progress-bar-container';
+            barContainer.style.flex = '1';
 
             const bar = document.createElement('div');
             bar.className = 'progress-bar';
