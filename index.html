@@ -99,6 +99,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      cursor: pointer;
     }
 
     .page-caption {
@@ -489,6 +490,8 @@
 
             progressHeader.appendChild(barContainer);
             pageDiv.appendChild(progressHeader);
+            pageDiv.dataset.partIndex = partIndex;
+            pageDiv.dataset.pageIndex = pageIndex;
             progressList.appendChild(pageDiv);
           });
 
@@ -670,9 +673,10 @@
     }
 
     document.getElementById('container').addEventListener('click', (e) => {
-      if (e.target.classList.contains('portrait')) {
-        const partIndex = parseInt(e.target.dataset.partIndex);
-        const pageIndex = parseInt(e.target.dataset.pageIndex);
+      const progressItem = e.target.closest('.progress-item');
+      if (progressItem) {
+        const partIndex = parseInt(progressItem.dataset.partIndex);
+        const pageIndex = parseInt(progressItem.dataset.pageIndex);
         openLightbox(partIndex, pageIndex);
       }
     });
