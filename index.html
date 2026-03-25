@@ -171,6 +171,18 @@
       font-weight: bold;
     }
 
+    .progress-caption {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 1px;
+      font-weight: bold;
+      z-index: 1;
+    }
+
     .progress-header {
       display: flex;
       align-items: center;
@@ -539,14 +551,14 @@
             img.dataset.max = page.cap;
             progressHeader.appendChild(img);
 
-            const pageCaption = document.createElement('div');
-            pageCaption.className = 'page-caption';
-            pageCaption.textContent = `PAGE ${page.order}`;
-            progressHeader.appendChild(pageCaption);
-
             const barContainer = document.createElement('div');
             barContainer.className = 'progress-bar-container';
             barContainer.style.flex = '1';
+
+            const barCaption = document.createElement('span');
+            barCaption.className = 'progress-caption';
+            barCaption.textContent = `PAGE ${page.order}`;
+            barContainer.appendChild(barCaption);
 
             const bar = document.createElement('div');
             bar.className = 'progress-bar';
