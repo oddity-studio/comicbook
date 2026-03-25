@@ -474,7 +474,10 @@
       const showColor = images[currentIndex].showColor;
       
       if (showColor) {
-        lightboxFillup.style.display = 'none';
+        lightboxFillup.style.display = 'block';
+        lightboxFillup.textContent = 'SHOW LINEART';
+        lightboxFillup.style.background = '#4CAF50';
+        lightboxFillup.classList.add('show-color');
       } else if (current >= max) {
         lightboxFillup.style.display = 'block';
         lightboxFillup.textContent = 'SHOW COLOR';
@@ -527,7 +530,15 @@
       const showColor = images[currentIndex].showColor;
       const pageNum = images[currentIndex].pageNum;
       
-      if (showColor) return;
+      if (showColor) {
+        images[currentIndex].showColor = false;
+        const lineartSrc = 'public/Page' + pageNum + '-' + current + '.webp';
+        portrait.src = lineartSrc;
+        lightboxImg.src = lineartSrc;
+        images[currentIndex].src = lineartSrc;
+        updateFillupButton();
+        return;
+      }
       
       if (current >= max) {
         images[currentIndex].showColor = true;
