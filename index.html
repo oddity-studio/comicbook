@@ -395,7 +395,9 @@
     .lightbox-main {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 90%;
     }
 
     .lightbox-content {
@@ -438,21 +440,6 @@
       cursor: pointer;
       padding: 20px;
       user-select: none;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .lightbox-prev {
-      left: 10px;
-    }
-
-    .lightbox-next {
-      right: 10px;
-    }
-
-    .lightbox-main {
-      position: relative;
     }
 
     .lightbox-prev:hover,
