@@ -137,7 +137,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -194,6 +196,27 @@
     .lightbox-close:hover {
       color: #e94560;
     }
+
+    .lightbox-info {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .lightbox-part {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .lightbox-page {
+      font-size: 14px;
+      color: #888;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -205,7 +228,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 1</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="0">
+            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="0" data-part="PART I" data-page="Page 1">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 75%"></div>
               <span class="progress-text">3/4</span>
@@ -215,7 +238,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 2</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="1">
+            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="1" data-part="PART I" data-page="Page 2">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 40%"></div>
               <span class="progress-text">2/5</span>
@@ -225,7 +248,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 3</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="2">
+            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="2" data-part="PART I" data-page="Page 3">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 33.33%"></div>
               <span class="progress-text">1/3</span>
@@ -235,7 +258,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 4</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="3">
+            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="3" data-part="PART I" data-page="Page 4">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 100%"></div>
               <span class="progress-text">4/4</span>
@@ -245,7 +268,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 5</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=5&background=6d6d84&color=fff&size=40" alt="" class="portrait" data-index="4">
+            <img src="https://ui-avatars.com/api/?name=5&background=6d6d84&color=fff&size=40" alt="" class="portrait" data-index="4" data-part="PART I" data-page="Page 5">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 0%"></div>
               <span class="progress-text">0/6</span>
@@ -263,7 +286,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 1</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="5">
+            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="5" data-part="PART II" data-page="Page 1">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 50%"></div>
               <span class="progress-text">1/2</span>
@@ -273,7 +296,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 2</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="6">
+            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="6" data-part="PART II" data-page="Page 2">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 60%"></div>
               <span class="progress-text">3/5</span>
@@ -283,7 +306,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 3</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="7">
+            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="7" data-part="PART II" data-page="Page 3">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 0%"></div>
               <span class="progress-text">0/4</span>
@@ -293,7 +316,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 4</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="8">
+            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="8" data-part="PART II" data-page="Page 4">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 66.67%"></div>
               <span class="progress-text">2/3</span>
@@ -311,7 +334,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 1</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="9">
+            <img src="https://ui-avatars.com/api/?name=1&background=2d2d44&color=fff&size=40" alt="" class="portrait" data-index="9" data-part="PART III" data-page="Page 1">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 80%"></div>
               <span class="progress-text">4/5</span>
@@ -321,7 +344,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 2</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="10">
+            <img src="https://ui-avatars.com/api/?name=2&background=3d3d54&color=fff&size=40" alt="" class="portrait" data-index="10" data-part="PART III" data-page="Page 2">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 33.33%"></div>
               <span class="progress-text">1/3</span>
@@ -331,7 +354,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 3</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="11">
+            <img src="https://ui-avatars.com/api/?name=3&background=4d4d64&color=fff&size=40" alt="" class="portrait" data-index="11" data-part="PART III" data-page="Page 3">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 50%"></div>
               <span class="progress-text">2/4</span>
@@ -341,7 +364,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 4</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="12">
+            <img src="https://ui-avatars.com/api/?name=4&background=5d5d74&color=fff&size=40" alt="" class="portrait" data-index="12" data-part="PART III" data-page="Page 4">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 0%"></div>
               <span class="progress-text">0/2</span>
@@ -351,7 +374,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 5</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=5&background=6d6d84&color=fff&size=40" alt="" class="portrait" data-index="13">
+            <img src="https://ui-avatars.com/api/?name=5&background=6d6d84&color=fff&size=40" alt="" class="portrait" data-index="13" data-part="PART III" data-page="Page 5">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 60%"></div>
               <span class="progress-text">3/5</span>
@@ -361,7 +384,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 6</div>
           <div class="progress-header">
-            <img src="https://ui-avatars.com/api/?name=6&background=7d7d94&color=fff&size=40" alt="" class="portrait" data-index="14">
+            <img src="https://ui-avatars.com/api/?name=6&background=7d7d94&color=fff&size=40" alt="" class="portrait" data-index="14" data-part="PART III" data-page="Page 6">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 25%"></div>
               <span class="progress-text">1/4</span>
@@ -380,22 +403,34 @@
     <div class="lightbox-content">
       <img src="" alt="" class="lightbox-img" id="lightbox-img">
     </div>
+    <div class="lightbox-info">
+      <div class="lightbox-part" id="lightbox-part"></div>
+      <div class="lightbox-page" id="lightbox-page"></div>
+    </div>
   </div>
 
   <script>
     const portraits = document.querySelectorAll('.portrait');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxPart = document.getElementById('lightbox-part');
+    const lightboxPage = document.getElementById('lightbox-page');
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
 
     let currentIndex = 0;
-    const images = Array.from(portraits).map(p => p.src);
+    const images = Array.from(portraits).map(p => ({
+      src: p.src,
+      part: p.dataset.part,
+      page: p.dataset.page
+    }));
 
     function openLightbox(index) {
       currentIndex = index;
-      lightboxImg.src = images[currentIndex];
+      lightboxImg.src = images[currentIndex].src;
+      lightboxPart.textContent = images[currentIndex].part;
+      lightboxPage.textContent = images[currentIndex].page;
       lightbox.classList.add('active');
     }
 
@@ -405,12 +440,16 @@
 
     function showPrev() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex];
+      lightboxImg.src = images[currentIndex].src;
+      lightboxPart.textContent = images[currentIndex].part;
+      lightboxPage.textContent = images[currentIndex].page;
     }
 
     function showNext() {
       currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex];
+      lightboxImg.src = images[currentIndex].src;
+      lightboxPart.textContent = images[currentIndex].part;
+      lightboxPage.textContent = images[currentIndex].page;
     }
 
     portraits.forEach((portrait, index) => {
