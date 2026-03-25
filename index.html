@@ -384,6 +384,7 @@
       -webkit-backdrop-filter: blur(8px);
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       z-index: 1000;
     }
 
@@ -391,13 +392,17 @@
       display: flex;
     }
 
+    .lightbox-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
     .lightbox-content {
       max-width: 90%;
       max-height: 80%;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .lightbox-img {
@@ -426,22 +431,11 @@
 
     .lightbox-prev,
     .lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       font-size: 40px;
       color: #fff;
       cursor: pointer;
       padding: 20px;
       user-select: none;
-    }
-
-    .lightbox-prev {
-      left: 20px;
-    }
-
-    .lightbox-next {
-      right: 20px;
     }
 
     .lightbox-prev:hover,
@@ -587,12 +581,14 @@
 
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close">&times;</span>
-    <span class="lightbox-prev">&#10094;</span>
-    <span class="lightbox-next">&#10095;</span>
-    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
-    <div class="lightbox-content">
-      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-main">
+      <span class="lightbox-prev">&#10094;</span>
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      </div>
+      <span class="lightbox-next">&#10095;</span>
     </div>
+    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
     <div class="lightbox-info">
       <div class="lightbox-part" id="lightbox-part"></div>
       <div class="lightbox-page" id="lightbox-page"></div>
