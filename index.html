@@ -61,7 +61,7 @@
     .part-name {
       font-size: 18px;
       font-weight: bold;
-      color: #e94560;
+      color: #ff6b6b;
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-top: 4px;
@@ -71,7 +71,7 @@
     .part-separator {
       width: 100%;
       height: 8px;
-      background: linear-gradient(90deg, transparent, #e94560, transparent);
+      background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
       position: relative;
       margin: 20px 0;
     }
@@ -84,7 +84,7 @@
       transform: translate(-50%, -50%);
       background: #1a1a2e;
       padding: 0 15px;
-      color: #e94560;
+      color: #ff6b6b;
       font-size: 20px;
     }
 
@@ -238,18 +238,81 @@
       text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
+    .futuristic-btn {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      transform: skewX(-10deg);
+      height: 50px;
+      min-width: 180px;
+      border-radius: 20px 5px 20px 0px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 15px sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      animation: breath2 2s 0.5s infinite alternate;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .futuristic-btn:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 15px 3px 15px 3px;
+      animation: breath 2s infinite alternate;
+    }
+
+    @keyframes breath {
+      0% { transform: scaleX(1); }
+      100% { transform: scaleX(0.95); }
+    }
+
+    @keyframes breath2 {
+      0% { transform: skewX(-10deg) scaleX(1); }
+      100% { transform: skewX(-10deg) scaleX(0.95); }
+    }
+
     .play-btn {
       margin-top: 8px;
       padding: 14px 48px;
       font-size: 16px;
       font-weight: bold;
       letter-spacing: 2px;
-      background: #e94560;
+      background: #ff6b6b;
       color: #fff;
       border: none;
       border-radius: 8px;
       cursor: not-allowed;
       opacity: 0.5;
+    }
+
+    .play-btn.futuristic {
+      border: 1px solid #ffeca8;
+      background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+      color: #ffeca8;
+      text-shadow: 0 0 20px #fff;
+    }
+
+    .play-btn.futuristic:before {
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
+      box-shadow: inset 0 0 30px 0 #ffeca8;
+    }
+
+    .play-btn.futuristic:hover {
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+    }
+
+    .play-btn.futuristic:hover:before {
+      box-shadow: inset 0 0 50px 0 #ffeca8;
     }
 
     .play-btn:disabled {
@@ -270,6 +333,22 @@
       opacity: 0.7;
     }
 
+    .locked-btn.futuristic {
+      border: 1px solid #666;
+      background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8), rgba(60, 60, 60, 0.8));
+      box-shadow: 0 0 30px rgba(100, 100, 100, 0.3), 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px #888, inset 0 -1px #444;
+      color: #888;
+      text-shadow: 0 0 10px #666;
+    }
+
+    .locked-btn.futuristic:before {
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
+      box-shadow: inset 0 0 20px 0 #666;
+    }
+
     .unlock-btn {
       margin-top: 8px;
       padding: 14px 48px;
@@ -281,6 +360,30 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+    }
+
+    .unlock-btn.futuristic {
+      border: 1px solid #a8ecff;
+      background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.8), rgba(29, 96, 240, 0.8));
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.6), 0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+      color: #a8ecff;
+      text-shadow: 0 0 20px #fff;
+    }
+
+    .unlock-btn.futuristic:before {
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
+      box-shadow: inset 0 0 30px 0 #a8ecff;
+    }
+
+    .unlock-btn.futuristic:hover {
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.8), 0 5px 20px rgba(48, 138, 255, 0.8), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+    }
+
+    .unlock-btn.futuristic:hover:before {
+      box-shadow: inset 0 0 50px 0 #a8ecff;
     }
 
     .unlock-btn:hover {
@@ -366,22 +469,40 @@
       position: absolute;
       bottom: 90px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) skewX(-10deg);
       padding: 10px 24px;
       font-size: 14px;
       font-weight: bold;
       letter-spacing: 1px;
       background: #d946ef;
       color: #fff;
-      border: none;
-      border-radius: 6px;
+      border: 1px solid #d946ef;
+      border-radius: 15px 3px 15px 3px;
       cursor: pointer;
-      transition: opacity 0.2s ease;
+      transition: all 0.2s ease;
       z-index: 1002;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .lightbox-fillup:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 8px;
+      width: calc(100% - 16px);
+      height: calc(100% - 6px);
+      border: 1px solid #fff;
+      border-radius: 12px 1px 12px 1px;
+      box-shadow: inset 0 0 15px 0 rgba(255,255,255,0.5);
+      pointer-events: none;
     }
 
     .lightbox-fillup:hover {
       background: #f0abfc;
+      box-shadow: 0 0 40px rgba(217, 70, 239, 0.6), 0 5px 20px rgba(217, 70, 239, 0.4);
     }
 
     .lightbox-fillup.show-color:hover {
@@ -517,7 +638,7 @@
 
         if (part.locked) {
           const lockedBtn = document.createElement('button');
-          lockedBtn.className = 'locked-btn';
+          lockedBtn.className = 'locked-btn futuristic';
           lockedBtn.id = `unlock-btn-${part.order}`;
           lockedBtn.textContent = 'LOCKED';
           lockedBtn.disabled = true;
@@ -583,7 +704,7 @@
           const partStatus = getPartStatus(part);
           if (partStatus === 'complete') {
             const playBtn = document.createElement('button');
-            playBtn.className = 'play-btn';
+            playBtn.className = 'play-btn futuristic';
             playBtn.disabled = true;
             playBtn.textContent = `PLAY PART ${part.order}`;
             partDiv.appendChild(playBtn);
@@ -607,7 +728,7 @@
             if (unlockBtn && unlockBtn.classList.contains('locked-btn')) {
               unlockBtn.textContent = 'UNLOCK NOW';
               unlockBtn.classList.remove('locked-btn');
-              unlockBtn.classList.add('unlock-btn');
+              unlockBtn.classList.add('unlock-btn', 'futuristic');
               unlockBtn.disabled = false;
               unlockBtn.onclick = function() {
                 part.locked = false;
