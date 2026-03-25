@@ -281,8 +281,8 @@
     }
 
     @keyframes breath2 {
-      0% { transform: translateX(-50%) skewX(-10deg) scale(0.8) scaleX(1); }
-      100% { transform: translateX(-50%) skewX(-10deg) scale(0.8) scaleX(0.95); }
+      0% { transform: skewX(-10deg) scale(0.8) scaleX(1); }
+      100% { transform: skewX(-10deg) scale(0.8) scaleX(0.95); }
     }
 
     .play-btn {
@@ -396,6 +396,12 @@
       display: inline-block;
     }
 
+    .lightbox-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .lightbox-img {
       max-width: 90vw;
       max-height: 80vh;
@@ -494,7 +500,7 @@
       border: 1px solid green;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      transform: translateX(-50%) skewX(-10deg) scale(0.8);
+      transform: skewX(-10deg) scale(0.8);
       height: 50px;
       width: 200px;
       border-radius: 20px 5px 20px 0px;
@@ -509,7 +515,6 @@
       animation: breath2 2s 0.5s infinite alternate;
       cursor: pointer;
       padding: 0;
-      margin: 5px auto 0 auto;
     }
     
     .lightbox-fillup.futuristic-btn:before {
@@ -565,11 +570,10 @@
     }
 
     .lightbox-info {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
     .lightbox-part {
@@ -593,13 +597,14 @@
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
     <span class="lightbox-next">&#10095;</span>
-    <div class="lightbox-content">
-      <img src="" alt="" class="lightbox-img" id="lightbox-img">
-    </div>
-    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
-    <div class="lightbox-info">
-      <div class="lightbox-part" id="lightbox-part"></div>
-      <div class="lightbox-page" id="lightbox-page"></div>
+    <div class="lightbox-main">
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      </div>
+      <div class="lightbox-info">
+        <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
+        <div class="lightbox-page" id="lightbox-page"></div>
+      </div>
     </div>
   </div>
 
