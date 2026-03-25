@@ -490,6 +490,72 @@
     .lightbox-fillup.show-color:hover {
       background: #3080ff;
     }
+    
+    /* Make the lightbox fillup button also use futuristic styling */
+    .lightbox-fillup.futuristic-btn {
+      border: 1px solid green;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      transform: skewX(-10deg);
+      zoom: 1.5;
+      height: 50px;
+      width: 200px;
+      border-radius: 20px 5px 20px 0px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font: 15px sans-serif;
+      font-weight: 300;
+      text-shadow: 0 0 20px #fff;
+      text-transform: uppercase;
+      animation: breath2 2s 0.5s infinite alternate;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      padding: 0; /* Remove default padding since we'll handle sizing differently */
+    }
+    
+    .lightbox-fillup.futuristic-btn:before {
+      content: "";
+      display: block;
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      animation: breath 2s infinite alternate;
+      left: 10px;
+      top: 3px;
+      position: absolute;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 15px 3px 15px 3px;
+    }
+    
+    .lightbox-fillup.futuristic-btn.fire {
+      border-color: #ffeca8;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 138, 48, 0.8),
+        rgba(240, 96, 29, 0.8)
+      );
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
+        0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
+        inset 0 -1px #ffeca8;
+      color: #ffeca8;
+    }
+    
+    .lightbox-fillup.futuristic-btn.fire:before {
+      box-shadow: inset 0 0 30px 0 #ffeca8;
+    }
+    
+    .lightbox-fillup.futuristic-btn:hover.fire {
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
+        0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
+        inset 0 -1px #ffeca8;
+    }
+    
+    .lightbox-fillup.futuristic-btn:hover.fire:before {
+      box-shadow: inset 0 0 50px 0 #ffeca8;
+    }
 
     .lightbox-info {
       position: absolute;
@@ -738,6 +804,7 @@
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
     const lightboxFillup = document.getElementById('lightbox-fillup');
+    lightboxFillup.className = 'lightbox-fillup futuristic-btn fire';
 
     let currentPartIndex = 0;
     let currentPageIndex = 0;
@@ -798,13 +865,14 @@
       if (isComplete) {
         if (page.showColor) {
           lightboxFillup.textContent = 'SHOW LINEART';
+          lightboxFillup.className = 'lightbox-fillup futuristic-btn ice';
         } else {
           lightboxFillup.textContent = 'SHOW COLOR';
+          lightboxFillup.className = 'lightbox-fillup futuristic-btn fire';
         }
-        lightboxFillup.style.background = '#3080ff';
       } else {
         lightboxFillup.textContent = 'FILL UP';
-        lightboxFillup.style.background = '#ff8a30';
+        lightboxFillup.className = 'lightbox-fillup futuristic-btn fire';
       }
     }
 
