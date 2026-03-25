@@ -145,6 +145,23 @@
       display: none;
     }
 
+    .unlock-btn {
+      margin-top: 8px;
+      padding: 14px 48px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .unlock-btn:hover {
+      background: #ff6b6b;
+    }
+
     .part-section.locked .locked-content {
       display: none;
     }
@@ -606,9 +623,53 @@
       }
       
       updateFillupButton();
+      checkPartCompletion();
     }
 
     lightboxFillup.addEventListener('click', fillUp);
+
+    function checkPartCompletion() {
+      const part1Start = 0;
+      const part1End = 5;
+      const part2Start = 5;
+      const part2End = 9;
+      const part3Start = 9;
+      const part3End = 15;
+
+      const part1Complete = images.slice(part1Start, part1End + 1).every(img => img.current >= img.max && img.showColor);
+      const part2Complete = images.slice(part2Start, part2End + 1).every(img => img.current >= img.max && img.showColor);
+
+      const part2Section = document.querySelectorAll('.part-section')[1];
+      const part2Btn = part2Section.querySelector('.locked-btn');
+      const part2LockedContent = part2Section.querySelector('.locked-content');
+
+      if (part1Complete && part2Btn) {
+        part2Btn.textContent = 'UNLOCK NOW';
+        part2Btn.classList.remove('locked-btn');
+        part2Btn.classList.add('unlock-btn');
+        part2Btn.disabled = false;
+        part2Btn.onclick = function() {
+          part2Section.classList.remove('locked');
+          part2Btn.style.display = 'none';
+        };
+      }
+
+      const part3Section = document.querySelectorAll('.part-section')[2];
+      const part3Btn = part3Section.querySelector('.locked-btn');
+
+      if (part2Complete && part3Btn) {
+        part3Btn.textContent = 'UNLOCK NOW';
+        part3Btn.classList.remove('locked-btn');
+        part3Btn.classList.add('unlock-btn');
+        part3Btn.disabled = false;
+        part3Btn.onclick = function() {
+          part3Section.classList.remove('locked');
+          part3Btn.style.display = 'none';
+        };
+      }
+    }
+
+    checkPartCompletion();
 
     portraits.forEach((portrait, index) => {
       portrait.addEventListener('click', () => openLightbox(index));
