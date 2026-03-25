@@ -397,6 +397,13 @@
       position: relative;
     }
 
+    .lightbox-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
     .lightbox-img {
       max-width: 100%;
       max-height: 80vh;
@@ -448,10 +455,8 @@
     }
 
     .lightbox-fillup {
-      position: absolute;
-      bottom: 90px;
-      left: 50%;
-      transform: translateX(-50%) skewX(-10deg);
+      margin-top: 15px;
+      transform: skewX(-10deg);
       padding: 10px 24px;
       font-size: 14px;
       font-weight: bold;
@@ -513,7 +518,8 @@
       animation: breath2 2s 0.5s infinite alternate;
       transition: all 0.2s ease;
       cursor: pointer;
-      padding: 0; /* Remove default padding since we'll handle sizing differently */
+      padding: 0;
+      margin-top: 15px;
     }
     
     .lightbox-fillup.futuristic-btn:before {
@@ -586,13 +592,15 @@
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
     <span class="lightbox-next">&#10095;</span>
-    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
-    <div class="lightbox-content">
-      <img src="" alt="" class="lightbox-img" id="lightbox-img">
-    </div>
-    <div class="lightbox-info">
-      <div class="lightbox-part" id="lightbox-part"></div>
-      <div class="lightbox-page" id="lightbox-page"></div>
+    <div class="lightbox-center">
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      </div>
+      <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
+      <div class="lightbox-info">
+        <div class="lightbox-part" id="lightbox-part"></div>
+        <div class="lightbox-page" id="lightbox-page"></div>
+      </div>
     </div>
   </div>
 
