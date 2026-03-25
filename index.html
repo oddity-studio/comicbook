@@ -311,33 +311,33 @@
         {
           order: 1,
           pages: [
-            { order: 1, cap: 6, completion: 0 },
-            { order: 2, cap: 5, completion: 0 },
-            { order: 3, cap: 5, completion: 0 },
-            { order: 4, cap: 5, completion: 0 },
-            { order: 5, cap: 3, completion: 0 }
+            { order: 1, cap: 6, completion: 0, showColor: false },
+            { order: 2, cap: 5, completion: 0, showColor: false },
+            { order: 3, cap: 5, completion: 0, showColor: false },
+            { order: 4, cap: 5, completion: 0, showColor: false },
+            { order: 5, cap: 3, completion: 0, showColor: false }
           ]
         },
         {
           order: 2,
           locked: true,
           pages: [
-            { order: 1, cap: 6, completion: 0 },
-            { order: 2, cap: 5, completion: 0 },
-            { order: 3, cap: 5, completion: 0 },
-            { order: 4, cap: 5, completion: 0 }
+            { order: 1, cap: 6, completion: 0, showColor: false },
+            { order: 2, cap: 5, completion: 0, showColor: false },
+            { order: 3, cap: 5, completion: 0, showColor: false },
+            { order: 4, cap: 5, completion: 0, showColor: false }
           ]
         },
         {
           order: 3,
           locked: true,
           pages: [
-            { order: 1, cap: 6, completion: 0 },
-            { order: 2, cap: 5, completion: 0 },
-            { order: 3, cap: 5, completion: 0 },
-            { order: 4, cap: 5, completion: 0 },
-            { order: 5, cap: 3, completion: 0 },
-            { order: 6, cap: 6, completion: 0 }
+            { order: 1, cap: 6, completion: 0, showColor: false },
+            { order: 2, cap: 5, completion: 0, showColor: false },
+            { order: 3, cap: 5, completion: 0, showColor: false },
+            { order: 4, cap: 5, completion: 0, showColor: false },
+            { order: 5, cap: 3, completion: 0, showColor: false },
+            { order: 6, cap: 6, completion: 0, showColor: false }
           ]
         }
       ]
@@ -496,7 +496,11 @@
       
       let src;
       if (page.completion >= page.cap) {
-        src = `public/Page${page.order}-full.webp`;
+        if (page.showColor) {
+          src = `public/Page${page.order}-full.webp`;
+        } else {
+          src = `public/Page${page.order}-${page.completion}.webp`;
+        }
       } else if (page.completion > 0) {
         src = `public/Page${page.order}-${page.completion}.webp`;
       } else {
@@ -534,7 +538,11 @@
       const isComplete = current >= max;
 
       if (isComplete) {
-        lightboxFillup.textContent = 'SHOW LINEART';
+        if (page.showColor) {
+          lightboxFillup.textContent = 'SHOW LINEART';
+        } else {
+          lightboxFillup.textContent = 'SHOW COLOR';
+        }
         lightboxFillup.style.background = '#4CAF50';
       } else {
         lightboxFillup.textContent = 'FILL UP';
@@ -548,8 +556,13 @@
       const max = page.cap;
 
       if (current >= max) {
-        const src = `public/Page${page.order}-${current}.webp`;
-        lightboxImg.src = src;
+        if (page.showColor) {
+          page.showColor = false;
+          lightboxImg.src = `public/Page${page.order}-${current}.webp`;
+        } else {
+          page.showColor = true;
+          lightboxImg.src = `public/Page${page.order}-full.webp`;
+        }
         updateFillupButton();
         return;
       }
