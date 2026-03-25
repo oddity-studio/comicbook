@@ -242,21 +242,33 @@
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transform: skewX(-10deg);
-      height: 60px;
-      min-width: 220px;
-      border-radius: 25px 8px 25px 5px;
+      height: 50px;
+      width: 200px;
+      border-radius: 20px 5px 20px 0px;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      font: 12px sans-serif;
-      font-weight: 600;
+      font: 15px sans-serif;
+      font-weight: 300;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 1;
       animation: breath2 2s 0.5s infinite alternate;
       cursor: pointer;
       transition: all 0.2s ease;
+    }
+
+    .futuristic-btn:before {
+      content: "";
+      display: block;
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      animation: breath 2s infinite alternate;
+      left: 10px;
+      top: 3px;
+      position: absolute;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 15px 3px 15px 3px;
     }
 
     .futuristic-btn:before {
@@ -281,8 +293,8 @@
 
     .play-btn {
       margin-top: 8px;
-      padding: 18px 52px;
-      font-size: 14px;
+      padding: 14px 48px;
+      font-size: 16px;
       font-weight: bold;
       letter-spacing: 2px;
       background: #ff6b6b;
@@ -294,27 +306,27 @@
     }
 
     .play-btn.futuristic {
-      border: 1px solid #ffcc66;
-      background-image: linear-gradient(to bottom, rgba(255, 180, 80, 0.9), rgba(200, 60, 10, 0.9));
-      box-shadow: 0 0 70px rgba(255, 100, 30, 0.6), 0 5px 20px rgba(200, 50, 10, 0.6), inset 0 1px #ffcc66, inset 0 -1px #cc4400;
-      color: #ffcc66;
+      border-color: #ffeca8;
+      background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+      color: #ffeca8;
       text-shadow: 0 0 20px #fff;
     }
 
     .play-btn.futuristic:before {
-      width: calc(100% - 26px);
-      height: calc(60px - 12px);
-      left: 12px;
-      top: 5px;
-      box-shadow: inset 0 0 30px 0 #ffcc66;
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
+      box-shadow: inset 0 0 30px 0 #ffeca8;
     }
 
     .play-btn.futuristic:hover {
-      box-shadow: 0 0 80px rgba(255, 120, 40, 0.8), 0 6px 25px rgba(200, 60, 10, 0.8), inset 0 1px #ffcc66, inset 0 -1px #cc4400;
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
     }
 
     .play-btn.futuristic:hover:before {
-      box-shadow: inset 0 0 50px 0 #ffcc66;
+      box-shadow: inset 0 0 50px 0 #ffeca8;
     }
 
     .play-btn:disabled {
@@ -323,8 +335,8 @@
 
     .locked-btn {
       margin-top: 8px;
-      padding: 18px 52px;
-      font-size: 14px;
+      padding: 14px 48px;
+      font-size: 16px;
       font-weight: bold;
       letter-spacing: 2px;
       background: #444;
@@ -336,19 +348,19 @@
     }
 
     .locked-btn.futuristic {
-      border: 1px solid #888;
-      background-image: linear-gradient(to bottom, rgba(140, 140, 140, 0.9), rgba(50, 50, 50, 0.9));
-      box-shadow: 0 0 30px rgba(80, 80, 80, 0.3), 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 1px #aaa, inset 0 -1px #333;
+      border: 1px solid #666;
+      background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8), rgba(60, 60, 60, 0.8));
+      box-shadow: 0 0 30px rgba(100, 100, 100, 0.3), 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px #888, inset 0 -1px #444;
       color: #888;
       text-shadow: 0 0 10px #666;
     }
 
     .locked-btn.futuristic:before {
-      width: calc(100% - 26px);
-      height: calc(60px - 12px);
-      left: 12px;
-      top: 5px;
-      box-shadow: inset 0 0 20px 0 #888;
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
+      box-shadow: inset 0 0 20px 0 #666;
     }
 
     .unlock-btn {
@@ -365,23 +377,23 @@
     }
 
     .unlock-btn.futuristic {
-      border: 1px solid #a8ecff;
-      background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.9), rgba(29, 96, 240, 0.9));
-      box-shadow: 0 0 70px rgba(48, 138, 255, 0.6), 0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #a8ecff, inset 0 -1px #1d60f0;
+      border-color: #a8ecff;
+      background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.8), rgba(29, 96, 240, 0.8));
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.6), 0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
       color: #a8ecff;
       text-shadow: 0 0 20px #fff;
     }
 
     .unlock-btn.futuristic:before {
-      width: calc(100% - 26px);
-      height: calc(60px - 12px);
-      left: 12px;
-      top: 5px;
+      width: calc(100% - 22px);
+      height: calc(50px - 8px);
+      left: 10px;
+      top: 3px;
       box-shadow: inset 0 0 30px 0 #a8ecff;
     }
 
     .unlock-btn.futuristic:hover {
-      box-shadow: 0 0 80px rgba(48, 138, 255, 0.8), 0 6px 25px rgba(29, 96, 240, 0.8), inset 0 1px #a8ecff, inset 0 -1px #1d60f0;
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.75), 0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
     }
 
     .unlock-btn.futuristic:hover:before {
