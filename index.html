@@ -382,35 +382,22 @@
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       z-index: 1000;
     }
 
     .lightbox.active {
       display: flex;
-    }
-
-    .lightbox-main {
-      display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 90%;
     }
 
     .lightbox-content {
-      max-width: 90%;
-      max-height: 80%;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
     }
 
     .lightbox-img {
-      max-width: 100%;
+      max-width: 90vw;
       max-height: 80vh;
       border-radius: 8px;
       transition: transform 0.2s ease;
@@ -435,11 +422,22 @@
 
     .lightbox-prev,
     .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       font-size: 40px;
       color: #fff;
       cursor: pointer;
       padding: 20px;
       user-select: none;
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
     }
 
     .lightbox-prev:hover,
@@ -492,7 +490,6 @@
       background: #3080ff;
     }
     
-    /* Make the lightbox fillup button also use futuristic styling */
     .lightbox-fillup.futuristic-btn {
       border: 1px solid green;
       -webkit-backdrop-filter: blur(10px);
@@ -502,7 +499,7 @@
       height: 50px;
       width: 200px;
       border-radius: 20px 5px 20px 0px;
-      position: relative;
+      position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -512,9 +509,11 @@
       text-shadow: 0 0 20px #fff;
       text-transform: uppercase;
       animation: breath2 2s 0.5s infinite alternate;
-      transition: all 0.2s ease;
       cursor: pointer;
-      padding: 0; /* Remove default padding since we'll handle sizing differently */
+      padding: 0;
+      margin: 0;
+      left: 50%;
+      bottom: 90px;
     }
     
     .lightbox-fillup.futuristic-btn:before {
@@ -533,14 +532,8 @@
     
     .lightbox-fillup.futuristic-btn.fire {
       border-color: #ffeca8;
-      background-image: linear-gradient(
-        to bottom,
-        rgba(255, 138, 48, 0.8),
-        rgba(240, 96, 29, 0.8)
-      );
-      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
-        0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
-        inset 0 -1px #ffeca8;
+      background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
       color: #ffeca8;
     }
     
@@ -548,14 +541,31 @@
       box-shadow: inset 0 0 30px 0 #ffeca8;
     }
     
+    .lightbox-fillup.futuristic-btn.ice {
+      border-color: #a8ecff;
+      background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.8), rgba(29, 96, 240, 0.8));
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.6), 0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+      color: #a8ecff;
+    }
+    
+    .lightbox-fillup.futuristic-btn.ice:before {
+      box-shadow: inset 0 0 30px 0 #a8ecff;
+    }
+    
     .lightbox-fillup.futuristic-btn:hover.fire {
-      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
-        0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
-        inset 0 -1px #ffeca8;
+      box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
     }
     
     .lightbox-fillup.futuristic-btn:hover.fire:before {
       box-shadow: inset 0 0 50px 0 #ffeca8;
+    }
+    
+    .lightbox-fillup.futuristic-btn:hover.ice {
+      box-shadow: 0 0 70px rgba(48, 138, 255, 0.75), 0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+    }
+    
+    .lightbox-fillup.futuristic-btn:hover.ice:before {
+      box-shadow: inset 0 0 50px 0 #a8ecff;
     }
 
     .lightbox-info {
@@ -585,12 +595,10 @@
 
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close">&times;</span>
-    <div class="lightbox-main">
-      <span class="lightbox-prev">&#10094;</span>
-      <div class="lightbox-content">
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
-      </div>
-      <span class="lightbox-next">&#10095;</span>
+    <span class="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next">&#10095;</span>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightbox-img">
     </div>
     <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
     <div class="lightbox-info">
