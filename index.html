@@ -39,6 +39,10 @@
       gap: 20px;
     }
 
+    .part-section.hidden {
+      display: none;
+    }
+
     .head-caption {
       font-size: 32px;
       font-weight: bold;
@@ -142,7 +146,6 @@
       border-radius: 8px;
       cursor: not-allowed;
       opacity: 0.7;
-      display: none;
     }
 
     .unlock-btn {
@@ -160,14 +163,6 @@
 
     .unlock-btn:hover {
       background: #ff6b6b;
-    }
-
-    .part-section.locked .locked-content {
-      display: none;
-    }
-
-    .part-section.locked .locked-btn {
-      display: block;
     }
 
     .lightbox {
@@ -245,27 +240,6 @@
       color: #e94560;
     }
 
-    .lightbox-info {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-
-    .lightbox-part {
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #fff;
-    }
-
-    .lightbox-page {
-      font-size: 14px;
-      color: #888;
-      margin-top: 4px;
-    }
-
     .lightbox-fillup {
       position: absolute;
       bottom: 90px;
@@ -292,190 +266,30 @@
       background: #66BB6A;
     }
 
-    .lightbox-fillup.hidden {
-      display: none;
+    .lightbox-info {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .lightbox-part {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .lightbox-page {
+      font-size: 14px;
+      color: #888;
+      margin-top: 4px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- PART I -->
-    <div class="part-section">
-      <div class="head-caption">PART I</div>
-      <div class="progress-list">
-        <div class="progress-item">
-          <div class="page-caption">PAGE 1</div>
-          <div class="progress-header">
-            <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART I" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/6</span>
-            </div>
-          </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 2</div>
-          <div class="progress-header">
-            <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART I" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
-            </div>
-          </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 3</div>
-          <div class="progress-header">
-            <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART I" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
-            </div>
-          </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 4</div>
-          <div class="progress-header">
-            <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART I" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
-            </div>
-          </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 5</div>
-          <div class="progress-header">
-            <img src="public/Page5-icon.webp" alt="" class="portrait" data-part="PART I" data-page="Page 5" data-page-num="5" data-current="0" data-max="3">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/3</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PART II -->
-    <div class="part-section locked">
-      <div class="head-caption">PART II</div>
-      <div class="locked-content">
-        <div class="progress-list">
-          <div class="progress-item">
-            <div class="page-caption">PAGE 1</div>
-            <div class="progress-header">
-              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/6</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 2</div>
-            <div class="progress-header">
-              <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 3</div>
-            <div class="progress-header">
-              <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 4</div>
-            <div class="progress-header">
-              <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="locked-btn" disabled>LOCKED</button>
-    </div>
-
-    <!-- PART III -->
-    <div class="part-section locked">
-      <div class="head-caption">PART III</div>
-      <div class="locked-content">
-        <div class="progress-list">
-          <div class="progress-item">
-            <div class="page-caption">PAGE 1</div>
-            <div class="progress-header">
-              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/6</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 2</div>
-            <div class="progress-header">
-              <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 3</div>
-            <div class="progress-header">
-              <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 4</div>
-            <div class="progress-header">
-              <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 5</div>
-            <div class="progress-header">
-              <img src="public/Page5-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 5" data-page-num="5" data-current="0" data-max="3">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/3</span>
-              </div>
-            </div>
-          </div>
-          <div class="progress-item">
-            <div class="page-caption">PAGE 6</div>
-            <div class="progress-header">
-              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 6" data-page-num="1" data-current="0" data-max="6">
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 0%"></div>
-                <span class="progress-text">0/6</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="locked-btn" disabled>LOCKED</button>
-    </div>
-  </div>
+  <div class="container" id="container"></div>
 
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close">&times;</span>
@@ -492,7 +306,172 @@
   </div>
 
   <script>
-    const portraits = document.querySelectorAll('.portrait');
+    const data = {
+      parts: [
+        {
+          order: 1,
+          pages: [
+            { order: 1, cap: 6, completion: 0 },
+            { order: 2, cap: 5, completion: 0 },
+            { order: 3, cap: 5, completion: 0 },
+            { order: 4, cap: 5, completion: 0 },
+            { order: 5, cap: 3, completion: 0 }
+          ]
+        },
+        {
+          order: 2,
+          locked: true,
+          pages: [
+            { order: 1, cap: 6, completion: 0 },
+            { order: 2, cap: 5, completion: 0 },
+            { order: 3, cap: 5, completion: 0 },
+            { order: 4, cap: 5, completion: 0 }
+          ]
+        },
+        {
+          order: 3,
+          locked: true,
+          pages: [
+            { order: 1, cap: 6, completion: 0 },
+            { order: 2, cap: 5, completion: 0 },
+            { order: 3, cap: 5, completion: 0 },
+            { order: 4, cap: 5, completion: 0 },
+            { order: 5, cap: 3, completion: 0 },
+            { order: 6, cap: 6, completion: 0 }
+          ]
+        }
+      ]
+    };
+
+    function getPageStatus(page) {
+      return page.completion >= page.cap ? 'complete' : 'incomplete';
+    }
+
+    function getPartStatus(part) {
+      const completeCount = part.pages.filter(p => getPageStatus(p) === 'complete').length;
+      return completeCount === part.pages.length ? 'complete' : 'incomplete';
+    }
+
+    function getPartPageCount(part) {
+      return part.pages.length;
+    }
+
+    function getPartRange(part) {
+      return { start: 0, end: 0 };
+    }
+
+    function render() {
+      const container = document.getElementById('container');
+      container.innerHTML = '';
+
+      data.parts.forEach((part, partIndex) => {
+        const partDiv = document.createElement('div');
+        partDiv.className = 'part-section';
+        partDiv.id = `part-${part.order}`;
+
+        const title = document.createElement('div');
+        title.className = 'head-caption';
+        title.textContent = `PART ${part.order}`;
+        partDiv.appendChild(title);
+
+        if (part.locked) {
+          const lockedBtn = document.createElement('button');
+          lockedBtn.className = 'locked-btn';
+          lockedBtn.id = `unlock-btn-${part.order}`;
+          lockedBtn.textContent = 'LOCKED';
+          lockedBtn.disabled = true;
+          partDiv.appendChild(lockedBtn);
+        } else {
+          const progressList = document.createElement('div');
+          progressList.className = 'progress-list';
+
+          part.pages.forEach((page, pageIndex) => {
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'progress-item';
+
+            const pageCaption = document.createElement('div');
+            pageCaption.className = 'page-caption';
+            pageCaption.textContent = `PAGE ${page.order}`;
+            pageDiv.appendChild(pageCaption);
+
+            const progressHeader = document.createElement('div');
+            progressHeader.className = 'progress-header';
+
+            const img = document.createElement('img');
+            img.className = 'portrait';
+            img.id = `page-img-${partIndex}-${pageIndex}`;
+            const iconSrc = page.completion >= page.cap 
+              ? `public/Page${page.order}-icon-full.webp` 
+              : `public/Page${page.order}-icon.webp`;
+            img.src = iconSrc;
+            img.alt = '';
+            img.dataset.partIndex = partIndex;
+            img.dataset.pageIndex = pageIndex;
+            img.dataset.part = `PART ${part.order}`;
+            img.dataset.page = `Page ${page.order}`;
+            img.dataset.pageNum = page.order;
+            img.dataset.current = page.completion;
+            img.dataset.max = page.cap;
+            progressHeader.appendChild(img);
+
+            const barContainer = document.createElement('div');
+            barContainer.className = 'progress-bar-container';
+
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            const percent = page.cap > 0 ? (page.completion / page.cap) * 100 : 0;
+            bar.style.width = `${percent}%`;
+            barContainer.appendChild(bar);
+
+            const text = document.createElement('span');
+            text.className = 'progress-text';
+            text.id = `page-text-${partIndex}-${pageIndex}`;
+            text.textContent = `${page.completion}/${page.cap}`;
+            barContainer.appendChild(text);
+
+            progressHeader.appendChild(barContainer);
+            pageDiv.appendChild(progressHeader);
+            progressList.appendChild(pageDiv);
+          });
+
+          partDiv.appendChild(progressList);
+
+          const playBtn = document.createElement('button');
+          playBtn.className = 'play-btn';
+          playBtn.disabled = true;
+          playBtn.textContent = `PLAY PART ${part.order}`;
+          partDiv.appendChild(playBtn);
+        }
+
+        container.appendChild(partDiv);
+      });
+
+      checkUnlocks();
+    }
+
+    function checkUnlocks() {
+      data.parts.forEach((part, index) => {
+        if (part.locked && index > 0) {
+          const prevPart = data.parts[index - 1];
+          const prevStatus = getPartStatus(prevPart);
+
+          if (prevStatus === 'complete') {
+            const unlockBtn = document.getElementById(`unlock-btn-${part.order}`);
+            if (unlockBtn && unlockBtn.classList.contains('locked-btn')) {
+              unlockBtn.textContent = 'UNLOCK NOW';
+              unlockBtn.classList.remove('locked-btn');
+              unlockBtn.classList.add('unlock-btn');
+              unlockBtn.disabled = false;
+              unlockBtn.onclick = function() {
+                part.locked = false;
+                render();
+              };
+            }
+          }
+        }
+      });
+    }
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxPart = document.getElementById('lightbox-part');
@@ -502,46 +481,31 @@
     const lightboxNext = document.querySelector('.lightbox-next');
     const lightboxFillup = document.getElementById('lightbox-fillup');
 
-    let currentIndex = 0;
-    const images = Array.from(portraits).map(p => ({
-      thumbnailSrc: p.src,
-      lightboxSrc: 'public/Page' + p.dataset.pageNum + '-0.webp',
-      part: p.dataset.part,
-      page: p.dataset.page,
-      current: parseInt(p.dataset.current),
-      max: parseInt(p.dataset.max),
-      showColor: false,
-      pageNum: parseInt(p.dataset.pageNum)
-    }));
+    let currentPartIndex = 0;
+    let currentPageIndex = 0;
+    let currentZoom = 1;
+    let panX = 0;
+    let panY = 0;
+    const maxZoom = 2;
+    const minZoom = 1;
 
-    function updateFillupButton() {
-      const current = images[currentIndex].current;
-      const max = images[currentIndex].max;
-      const showColor = images[currentIndex].showColor;
+    function openLightbox(partIndex, pageIndex) {
+      currentPartIndex = partIndex;
+      currentPageIndex = pageIndex;
+      const page = data.parts[partIndex].pages[pageIndex];
       
-      if (showColor) {
-        lightboxFillup.style.display = 'block';
-        lightboxFillup.textContent = 'SHOW LINEART';
-        lightboxFillup.style.background = '#4CAF50';
-        lightboxFillup.classList.add('show-color');
-      } else if (current >= max) {
-        lightboxFillup.style.display = 'block';
-        lightboxFillup.textContent = 'SHOW COLOR';
-        lightboxFillup.style.background = '#4CAF50';
-        lightboxFillup.classList.add('show-color');
+      let src;
+      if (page.completion >= page.cap) {
+        src = `public/Page${page.order}-full.webp`;
+      } else if (page.completion > 0) {
+        src = `public/Page${page.order}-${page.completion}.webp`;
       } else {
-        lightboxFillup.style.display = 'block';
-        lightboxFillup.textContent = 'FILL UP';
-        lightboxFillup.style.background = '#e94560';
-        lightboxFillup.classList.remove('show-color');
+        src = `public/Page${page.order}-0.webp`;
       }
-    }
-
-    function openLightbox(index) {
-      currentIndex = index;
-      lightboxImg.src = images[currentIndex].lightboxSrc;
-      lightboxPart.textContent = images[currentIndex].part;
-      lightboxPage.textContent = images[currentIndex].page;
+      
+      lightboxImg.src = src;
+      lightboxPart.textContent = `PART ${data.parts[partIndex].order}`;
+      lightboxPage.textContent = `Page ${page.order}`;
       resetZoom();
       updateFillupButton();
       lightbox.classList.add('active');
@@ -552,129 +516,86 @@
     }
 
     function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex].lightboxSrc;
-      lightboxPart.textContent = images[currentIndex].part;
-      lightboxPage.textContent = images[currentIndex].page;
-      resetZoom();
-      updateFillupButton();
+      const part = data.parts[currentPartIndex];
+      currentPageIndex = (currentPageIndex - 1 + part.pages.length) % part.pages.length;
+      openLightbox(currentPartIndex, currentPageIndex);
     }
 
     function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex].lightboxSrc;
-      lightboxPart.textContent = images[currentIndex].part;
-      lightboxPage.textContent = images[currentIndex].page;
-      resetZoom();
-      updateFillupButton();
+      const part = data.parts[currentPartIndex];
+      currentPageIndex = (currentPageIndex + 1) % part.pages.length;
+      openLightbox(currentPartIndex, currentPageIndex);
+    }
+
+    function updateFillupButton() {
+      const page = data.parts[currentPartIndex].pages[currentPageIndex];
+      const current = page.completion;
+      const max = page.cap;
+      const isComplete = current >= max;
+
+      if (isComplete) {
+        lightboxFillup.textContent = 'SHOW LINEART';
+        lightboxFillup.style.background = '#4CAF50';
+      } else {
+        lightboxFillup.textContent = 'FILL UP';
+        lightboxFillup.style.background = '#e94560';
+      }
     }
 
     function fillUp() {
-      const portrait = portraits[currentIndex];
-      const current = images[currentIndex].current;
-      const max = images[currentIndex].max;
-      const showColor = images[currentIndex].showColor;
-      const pageNum = images[currentIndex].pageNum;
-      
-      if (showColor) {
-        images[currentIndex].showColor = false;
-        const lineartSrc = 'public/Page' + pageNum + '-' + current + '.webp';
-        const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
-        portrait.src = iconFullSrc;
-        lightboxImg.src = lineartSrc;
-        images[currentIndex].lightboxSrc = lineartSrc;
-        updateFillupButton();
-        return;
-      }
-      
+      const page = data.parts[currentPartIndex].pages[currentPageIndex];
+      const current = page.completion;
+      const max = page.cap;
+
       if (current >= max) {
-        images[currentIndex].showColor = true;
-        const fullSrc = 'public/Page' + pageNum + '-full.webp';
-        const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
-        portrait.src = iconFullSrc;
-        lightboxImg.src = fullSrc;
-        images[currentIndex].lightboxSrc = fullSrc;
-        images[currentIndex].thumbnailSrc = iconFullSrc;
+        const src = `public/Page${page.order}-${current}.webp`;
+        lightboxImg.src = src;
         updateFillupButton();
         return;
       }
-      
-      const newCurrent = current + 1;
-      images[currentIndex].current = newCurrent;
-      
-      portrait.dataset.current = newCurrent;
-      
-      const newPercent = (newCurrent / max) * 100;
-      const progressBar = portrait.parentElement.querySelector('.progress-bar');
-      const progressText = portrait.parentElement.querySelector('.progress-text');
-      
-      progressBar.style.width = newPercent + '%';
-      progressText.textContent = newCurrent + '/' + max;
-      
-      const newSrc = 'public/Page' + pageNum + '-' + newCurrent + '.webp';
-      
-      lightboxImg.src = newSrc;
-      images[currentIndex].lightboxSrc = newSrc;
-      
-      if (newCurrent >= max) {
-        const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
-        portrait.src = iconFullSrc;
-        images[currentIndex].thumbnailSrc = iconFullSrc;
+
+      page.completion++;
+
+      const imgEl = document.getElementById(`page-img-${currentPartIndex}-${currentPageIndex}`);
+      const textEl = document.getElementById(`page-text-${currentPartIndex}-${currentPageIndex}`);
+      const barEl = imgEl.parentElement.querySelector('.progress-bar');
+
+      const percent = (page.completion / max) * 100;
+      barEl.style.width = `${percent}%`;
+      textEl.textContent = `${page.completion}/${max}`;
+
+      if (page.completion >= max) {
+        imgEl.src = `public/Page${page.order}-icon-full.webp`;
+        lightboxImg.src = `public/Page${page.order}-full.webp`;
+      } else {
+        lightboxImg.src = `public/Page${page.order}-${page.completion}.webp`;
       }
-      
+
       updateFillupButton();
-      checkPartCompletion();
+      checkUnlocks();
     }
 
-    lightboxFillup.addEventListener('click', fillUp);
-
-    function checkPartCompletion() {
-      const part1Start = 0;
-      const part1End = 5;
-      const part2Start = 5;
-      const part2End = 9;
-      const part3Start = 9;
-      const part3End = 15;
-
-      const part1Complete = images.slice(part1Start, part1End + 1).every(img => img.current >= img.max && img.showColor);
-      const part2Complete = images.slice(part2Start, part2End + 1).every(img => img.current >= img.max && img.showColor);
-
-      const part2Section = document.querySelectorAll('.part-section')[1];
-      const part2Btn = part2Section.querySelector('.locked-btn');
-      const part2LockedContent = part2Section.querySelector('.locked-content');
-
-      if (part1Complete && part2Btn) {
-        part2Btn.textContent = 'UNLOCK NOW';
-        part2Btn.classList.remove('locked-btn');
-        part2Btn.classList.add('unlock-btn');
-        part2Btn.disabled = false;
-        part2Btn.onclick = function() {
-          part2Section.classList.remove('locked');
-          part2Btn.style.display = 'none';
-        };
-      }
-
-      const part3Section = document.querySelectorAll('.part-section')[2];
-      const part3Btn = part3Section.querySelector('.locked-btn');
-
-      if (part2Complete && part3Btn) {
-        part3Btn.textContent = 'UNLOCK NOW';
-        part3Btn.classList.remove('locked-btn');
-        part3Btn.classList.add('unlock-btn');
-        part3Btn.disabled = false;
-        part3Btn.onclick = function() {
-          part3Section.classList.remove('locked');
-          part3Btn.style.display = 'none';
-        };
-      }
+    function updateTransform() {
+      lightboxImg.style.transform = `scale(${currentZoom}) translate(${panX}px, ${panY}px)`;
     }
 
-    checkPartCompletion();
+    function resetZoom() {
+      currentZoom = 1;
+      panX = 0;
+      panY = 0;
+      lightboxImg.classList.remove('zoomed');
+      updateTransform();
+    }
 
-    portraits.forEach((portrait, index) => {
-      portrait.addEventListener('click', () => openLightbox(index));
+    document.getElementById('container').addEventListener('click', (e) => {
+      if (e.target.classList.contains('portrait')) {
+        const partIndex = parseInt(e.target.dataset.partIndex);
+        const pageIndex = parseInt(e.target.dataset.pageIndex);
+        openLightbox(partIndex, pageIndex);
+      }
     });
 
+    lightboxFillup.addEventListener('click', fillUp);
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', showPrev);
     lightboxNext.addEventListener('click', showNext);
@@ -702,25 +623,6 @@
       }
     });
 
-    let currentZoom = 1;
-    let panX = 0;
-    let panY = 0;
-    const maxZoom = 2;
-    const minZoom = 1;
-
-    function updateTransform() {
-      lightboxImg.style.transform = `scale(${currentZoom}) translate(${panX}px, ${panY}px)`;
-    }
-
-    function resetZoom() {
-      currentZoom = 1;
-      panX = 0;
-      panY = 0;
-      lightboxImg.classList.remove('zoomed');
-      updateFillupButton();
-      updateTransform();
-    }
-
     lightboxImg.addEventListener('wheel', (e) => {
       e.preventDefault();
       if (e.deltaY < 0) {
@@ -736,7 +638,7 @@
         lightboxImg.classList.add('zoomed');
         lightboxFillup.style.display = 'none';
       } else {
-        updateFillupButton();
+        lightboxFillup.style.display = 'block';
       }
       updateTransform();
     });
@@ -776,7 +678,7 @@
       }
     });
 
-    lightbox.addEventListener('mouseup', (e) => {
+    lightbox.addEventListener('mouseup', () => {
       if (isDragging) {
         isDragging = false;
         lightboxImg.style.cursor = 'grab';
@@ -832,9 +734,11 @@
         currentZoom = Math.max(minZoom, Math.min(scale, maxZoom));
         if (currentZoom > 1) {
           lightboxImg.classList.add('zoomed');
+          lightboxFillup.style.display = 'none';
         } else {
           panX = 0;
           panY = 0;
+          lightboxFillup.style.display = 'block';
         }
         updateTransform();
       } else if (e.touches.length === 1 && currentZoom > 1) {
@@ -863,6 +767,8 @@
         }
       }
     });
+
+    render();
   </script>
 </body>
 </html>
