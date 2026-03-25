@@ -239,9 +239,11 @@
     }
 
     .futuristic-btn {
+      border: 1px solid green;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transform: skewX(-10deg);
+      zoom: 1.5;
       height: 50px;
       width: 200px;
       border-radius: 20px 5px 20px 0px;
@@ -249,12 +251,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
       font: 15px sans-serif;
       font-weight: 300;
+      text-shadow: 0 0 20px #fff;
       text-transform: uppercase;
       animation: breath2 2s 0.5s infinite alternate;
-      cursor: pointer;
       transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .futuristic-btn:before {
@@ -267,18 +271,8 @@
       top: 3px;
       position: absolute;
       background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: 15px 3px 15px 3px;
-    }
-
-    .futuristic-btn:before {
-      content: "";
-      display: block;
-      position: absolute;
-      background-color: transparent;
       border: 1px solid #fff;
-      border-radius: 18px 5px 18px 3px;
-      animation: breath 2s infinite alternate;
+      border-radius: 15px 3px 15px 3px;
     }
 
     @keyframes breath {
@@ -305,13 +299,7 @@
       opacity: 0.5;
     }
 
-    .play-btn.futuristic {
-      border-color: #ffeca8;
-      background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
-      box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
-      color: #ffeca8;
-      text-shadow: 0 0 20px #fff;
-    }
+
 
     .play-btn.futuristic:before {
       width: calc(100% - 22px);
@@ -347,21 +335,7 @@
       opacity: 0.7;
     }
 
-    .locked-btn.futuristic {
-      border: 1px solid #666;
-      background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.8), rgba(60, 60, 60, 0.8));
-      box-shadow: 0 0 30px rgba(100, 100, 100, 0.3), 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px #888, inset 0 -1px #444;
-      color: #888;
-      text-shadow: 0 0 10px #666;
-    }
 
-    .locked-btn.futuristic:before {
-      width: calc(100% - 22px);
-      height: calc(50px - 8px);
-      left: 10px;
-      top: 3px;
-      box-shadow: inset 0 0 20px 0 #666;
-    }
 
     .unlock-btn {
       margin-top: 8px;
@@ -652,7 +626,7 @@
 
         if (part.locked) {
           const lockedBtn = document.createElement('button');
-          lockedBtn.className = 'locked-btn futuristic';
+          lockedBtn.className = 'futuristic-btn ice';
           lockedBtn.id = `unlock-btn-${part.order}`;
           lockedBtn.textContent = 'LOCKED';
           lockedBtn.disabled = true;
@@ -715,14 +689,14 @@
 
           partDiv.appendChild(progressList);
 
-          const partStatus = getPartStatus(part);
-          if (partStatus === 'complete') {
-            const playBtn = document.createElement('button');
-            playBtn.className = 'play-btn futuristic';
-            playBtn.disabled = true;
-            playBtn.textContent = `PLAY PART ${part.order}`;
-            partDiv.appendChild(playBtn);
-          }
+           const partStatus = getPartStatus(part);
+           if (partStatus === 'complete') {
+             const playBtn = document.createElement('button');
+             playBtn.className = 'futuristic-btn fire';
+             playBtn.disabled = true;
+             playBtn.textContent = `PLAY PART ${part.order}`;
+             partDiv.appendChild(playBtn);
+           }
         }
 
         container.appendChild(partDiv);
@@ -739,10 +713,10 @@
 
           if (prevStatus === 'complete') {
             const unlockBtn = document.getElementById(`unlock-btn-${part.order}`);
-            if (unlockBtn && unlockBtn.classList.contains('locked-btn')) {
+            if (unlockBtn && unlockBtn.classList.contains('futuristic-btn')) {
               unlockBtn.textContent = 'UNLOCK NOW';
-              unlockBtn.classList.remove('locked-btn');
-              unlockBtn.classList.add('unlock-btn', 'futuristic');
+              unlockBtn.classList.remove('ice');
+              unlockBtn.classList.add('fire');
               unlockBtn.disabled = false;
               unlockBtn.onclick = function() {
                 part.locked = false;
