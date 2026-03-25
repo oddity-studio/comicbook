@@ -534,11 +534,10 @@
       if (showColor) {
         images[currentIndex].showColor = false;
         const lineartSrc = 'public/Page' + pageNum + '-' + current + '.webp';
-        const iconSrc = 'public/Page' + pageNum + '-icon.webp';
-        portrait.src = iconSrc;
+        const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
+        portrait.src = iconFullSrc;
         lightboxImg.src = lineartSrc;
         images[currentIndex].lightboxSrc = lineartSrc;
-        images[currentIndex].thumbnailSrc = iconSrc;
         updateFillupButton();
         return;
       }
