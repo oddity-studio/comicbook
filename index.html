@@ -248,6 +248,10 @@
       background: #ff6b6b;
     }
 
+    .lightbox-fillup.show-color:hover {
+      background: #66BB6A;
+    }
+
     .lightbox-fillup.hidden {
       display: none;
     }
@@ -527,16 +531,27 @@
       part: p.dataset.part,
       page: p.dataset.page,
       current: parseInt(p.dataset.current),
-      max: parseInt(p.dataset.max)
+      max: parseInt(p.dataset.max),
+      showColor: false
     }));
 
     function updateFillupButton() {
       const current = images[currentIndex].current;
       const max = images[currentIndex].max;
-      if (current >= max) {
+      const showColor = images[currentIndex].showColor;
+      
+      if (showColor) {
         lightboxFillup.style.display = 'none';
+      } else if (current >= max) {
+        lightboxFillup.style.display = 'block';
+        lightboxFillup.textContent = 'SHOW COLOR';
+        lightboxFillup.style.background = '#4CAF50';
+        lightboxFillup.classList.add('show-color');
       } else {
         lightboxFillup.style.display = 'block';
+        lightboxFillup.textContent = 'FILL UP';
+        lightboxFillup.style.background = '#e94560';
+        lightboxFillup.classList.remove('show-color');
       }
     }
 
@@ -576,8 +591,18 @@
       const portrait = portraits[currentIndex];
       const current = images[currentIndex].current;
       const max = images[currentIndex].max;
+      const showColor = images[currentIndex].showColor;
       
-      if (current >= max) return;
+      if (showColor) return;
+      
+      if (current >= max) {
+        images[currentIndex].showColor = true;
+        portrait.src = 'public/Page1-full.webp';
+        lightboxImg.src = 'public/Page1-full.webp';
+        images[currentIndex].src = 'public/Page1-full.webp';
+        updateFillupButton();
+        return;
+      }
       
       const newCurrent = current + 1;
       images[currentIndex].current = newCurrent;
@@ -592,9 +617,6 @@
       progressText.textContent = newCurrent + '/' + max;
       
       let newSrc = 'public/Page1-' + newCurrent + '.webp';
-      if (newCurrent === max) {
-        newSrc = 'public/Page1-full.webp';
-      }
       
       portrait.src = newSrc;
       lightboxImg.src = newSrc;
