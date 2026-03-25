@@ -460,7 +460,7 @@
     let currentIndex = 0;
     const images = Array.from(portraits).map(p => ({
       thumbnailSrc: p.src,
-      lightboxSrc: p.src,
+      lightboxSrc: 'public/Page' + p.dataset.pageNum + '-0.webp',
       part: p.dataset.part,
       page: p.dataset.page,
       current: parseInt(p.dataset.current),
