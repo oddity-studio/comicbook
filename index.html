@@ -495,7 +495,6 @@
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transform: translateX(-50%) skewX(-10deg);
-      zoom: 0.75;
       height: 50px;
       width: 200px;
       border-radius: 20px 5px 20px 0px;
@@ -844,7 +843,7 @@
       }
       
       lightboxImg.src = src;
-      lightboxPart.textContent = `PART ${data.parts[partIndex].order}`;
+      lightboxPart.textContent = '';
       lightboxPage.textContent = `Page ${page.order}`;
       resetZoom();
       updateFillupButton();
