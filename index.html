@@ -459,7 +459,8 @@
 
     let currentIndex = 0;
     const images = Array.from(portraits).map(p => ({
-      src: p.src,
+      thumbnailSrc: p.src,
+      lightboxSrc: p.src,
       part: p.dataset.part,
       page: p.dataset.page,
       current: parseInt(p.dataset.current),
@@ -493,7 +494,7 @@
 
     function openLightbox(index) {
       currentIndex = index;
-      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.src = images[currentIndex].lightboxSrc;
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
       resetZoom();
@@ -507,7 +508,7 @@
 
     function showPrev() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.src = images[currentIndex].lightboxSrc;
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
       resetZoom();
@@ -516,7 +517,7 @@
 
     function showNext() {
       currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.src = images[currentIndex].lightboxSrc;
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
       resetZoom();
@@ -536,7 +537,8 @@
         const iconSrc = 'public/Page' + pageNum + '-icon.webp';
         portrait.src = iconSrc;
         lightboxImg.src = lineartSrc;
-        images[currentIndex].src = lineartSrc;
+        images[currentIndex].lightboxSrc = lineartSrc;
+        images[currentIndex].thumbnailSrc = iconSrc;
         updateFillupButton();
         return;
       }
@@ -547,7 +549,8 @@
         const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
         portrait.src = iconFullSrc;
         lightboxImg.src = fullSrc;
-        images[currentIndex].src = fullSrc;
+        images[currentIndex].lightboxSrc = fullSrc;
+        images[currentIndex].thumbnailSrc = iconFullSrc;
         updateFillupButton();
         return;
       }
@@ -566,13 +569,13 @@
       
       const newSrc = 'public/Page' + pageNum + '-' + newCurrent + '.webp';
       
-      portrait.src = portrait.src;
       lightboxImg.src = newSrc;
-      images[currentIndex].src = newSrc;
+      images[currentIndex].lightboxSrc = newSrc;
       
       if (newCurrent >= max) {
         const iconFullSrc = 'public/Page' + pageNum + '-icon-full.webp';
         portrait.src = iconFullSrc;
+        images[currentIndex].thumbnailSrc = iconFullSrc;
       }
       
       updateFillupButton();
