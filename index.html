@@ -130,6 +130,29 @@
       cursor: not-allowed;
     }
 
+    .locked-btn {
+      margin-top: 8px;
+      padding: 14px 48px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background: #444;
+      color: #888;
+      border: none;
+      border-radius: 8px;
+      cursor: not-allowed;
+      opacity: 0.7;
+      display: none;
+    }
+
+    .part-section.locked .locked-content {
+      display: none;
+    }
+
+    .part-section.locked .locked-btn {
+      display: block;
+    }
+
     .lightbox {
       display: none;
       position: fixed;
@@ -317,118 +340,123 @@
     </div>
 
     <!-- PART II -->
-    <div class="part-section">
+    <div class="part-section locked">
       <div class="head-caption">PART II</div>
-      <div class="progress-list">
-        <div class="progress-item">
-          <div class="page-caption">PAGE 1</div>
-          <div class="progress-header">
-            <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/6</span>
+      <div class="locked-content">
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="page-caption">PAGE 1</div>
+            <div class="progress-header">
+              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/6</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 2</div>
-          <div class="progress-header">
-            <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 2</div>
+            <div class="progress-header">
+              <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 3</div>
-          <div class="progress-header">
-            <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 3</div>
+            <div class="progress-header">
+              <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 4</div>
-          <div class="progress-header">
-            <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 4</div>
+            <div class="progress-header">
+              <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART II" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <button class="locked-btn" disabled>LOCKED</button>
     </div>
 
     <!-- PART III -->
-    <div class="part-section">
+    <div class="part-section locked">
       <div class="head-caption">PART III</div>
-      <div class="progress-list">
-        <div class="progress-item">
-          <div class="page-caption">PAGE 1</div>
-          <div class="progress-header">
-            <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/6</span>
+      <div class="locked-content">
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="page-caption">PAGE 1</div>
+            <div class="progress-header">
+              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 1" data-page-num="1" data-current="0" data-max="6">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/6</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 2</div>
-          <div class="progress-header">
-            <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 2</div>
+            <div class="progress-header">
+              <img src="public/Page2-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 2" data-page-num="2" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 3</div>
-          <div class="progress-header">
-            <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 3</div>
+            <div class="progress-header">
+              <img src="public/Page3-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 3" data-page-num="3" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 4</div>
-          <div class="progress-header">
-            <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/5</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 4</div>
+            <div class="progress-header">
+              <img src="public/Page4-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 4" data-page-num="4" data-current="0" data-max="5">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/5</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 5</div>
-          <div class="progress-header">
-            <img src="public/Page5-0.webp" alt="" class="portrait" data-part="PART III" data-page="Page 5" data-page-num="5" data-current="0" data-max="3">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/3</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 5</div>
+            <div class="progress-header">
+              <img src="public/Page5-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 5" data-page-num="5" data-current="0" data-max="3">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/3</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="progress-item">
-          <div class="page-caption">PAGE 6</div>
-          <div class="progress-header">
-            <img src="public/Page1-0.webp" alt="" class="portrait" data-part="PART III" data-page="Page 6" data-page-num="1" data-current="0" data-max="6">
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%"></div>
-              <span class="progress-text">0/6</span>
+          <div class="progress-item">
+            <div class="page-caption">PAGE 6</div>
+            <div class="progress-header">
+              <img src="public/Page1-icon.webp" alt="" class="portrait" data-part="PART III" data-page="Page 6" data-page-num="1" data-current="0" data-max="6">
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 0%"></div>
+                <span class="progress-text">0/6</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <button class="play-btn" disabled>PLAY PART III</button>
+      <button class="locked-btn" disabled>LOCKED</button>
     </div>
   </div>
 
