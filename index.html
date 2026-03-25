@@ -648,7 +648,7 @@
 
       if (page.completion >= max) {
         imgEl.src = `public/Page${page.order}-icon-full.webp`;
-        lightboxImg.src = `public/Page${page.order}-full.webp`;
+        lightboxImg.src = `public/Page${page.order}-${page.completion}.webp`;
       } else {
         lightboxImg.src = `public/Page${page.order}-${page.completion}.webp`;
       }
