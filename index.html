@@ -225,6 +225,32 @@
       color: #888;
       margin-top: 4px;
     }
+
+    .lightbox-fillup {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .lightbox-fillup:hover {
+      background: #ff6b6b;
+    }
+
+    .lightbox-fillup.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -236,7 +262,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 1</div>
           <div class="progress-header">
-            <img src="public/Page1-3.webp" alt="" class="portrait" data-part="PART I" data-page="Page 1">
+            <img src="public/Page1-3.webp" alt="" class="portrait" data-part="PART I" data-page="Page 1" data-current="3" data-max="4">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 75%"></div>
               <span class="progress-text">3/4</span>
@@ -246,7 +272,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 2</div>
           <div class="progress-header">
-            <img src="public/Page1-2.webp" alt="" class="portrait" data-part="PART I" data-page="Page 2">
+            <img src="public/Page1-2.webp" alt="" class="portrait" data-part="PART I" data-page="Page 2" data-current="2" data-max="5">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 40%"></div>
               <span class="progress-text">2/5</span>
@@ -256,7 +282,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 3</div>
           <div class="progress-header">
-            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART I" data-page="Page 3">
+            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART I" data-page="Page 3" data-current="1" data-max="3">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 33.33%"></div>
               <span class="progress-text">1/3</span>
@@ -266,7 +292,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 4</div>
           <div class="progress-header">
-            <img src="public/Page1-4.webp" alt="" class="portrait" data-part="PART I" data-page="Page 4">
+            <img src="public/Page1-4.webp" alt="" class="portrait" data-part="PART I" data-page="Page 4" data-current="4" data-max="4">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 100%"></div>
               <span class="progress-text">4/4</span>
@@ -276,7 +302,7 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 5</div>
           <div class="progress-header">
-            <img src="public/Page1-0.webp" alt="" class="portrait" data-part="PART I" data-page="Page 5">
+            <img src="public/Page1-0.webp" alt="" class="portrait" data-part="PART I" data-page="Page 5" data-current="0" data-max="6">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 0%"></div>
               <span class="progress-text">0/6</span>
@@ -284,7 +310,6 @@
           </div>
         </div>
       </div>
-      <button class="play-btn" disabled>PLAY PART I</button>
     </div>
 
     <!-- PART II -->
@@ -294,11 +319,112 @@
         <div class="progress-item">
           <div class="page-caption">PAGE 1</div>
           <div class="progress-header">
-            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART II" data-page="Page 1">
+            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART II" data-page="Page 1" data-current="1" data-max="2">
             <div class="progress-bar-container">
               <div class="progress-bar" style="width: 50%"></div>
               <span class="progress-text">1/2</span>
             </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 2</div>
+          <div class="progress-header">
+            <img src="public/Page1-3.webp" alt="" class="portrait" data-part="PART II" data-page="Page 2" data-current="3" data-max="5">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 60%"></div>
+              <span class="progress-text">3/5</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 3</div>
+          <div class="progress-header">
+            <img src="public/Page1-0.webp" alt="" class="portrait" data-part="PART II" data-page="Page 3" data-current="0" data-max="4">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 0%"></div>
+              <span class="progress-text">0/4</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 4</div>
+          <div class="progress-header">
+            <img src="public/Page1-2.webp" alt="" class="portrait" data-part="PART II" data-page="Page 4" data-current="2" data-max="3">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 66.67%"></div>
+              <span class="progress-text">2/3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART III -->
+    <div class="part-section">
+      <div class="head-caption">PART III</div>
+      <div class="progress-list">
+        <div class="progress-item">
+          <div class="page-caption">PAGE 1</div>
+          <div class="progress-header">
+            <img src="public/Page1-4.webp" alt="" class="portrait" data-part="PART III" data-page="Page 1" data-current="4" data-max="5">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 80%"></div>
+              <span class="progress-text">4/5</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 2</div>
+          <div class="progress-header">
+            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART III" data-page="Page 2" data-current="1" data-max="3">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 33.33%"></div>
+              <span class="progress-text">1/3</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 3</div>
+          <div class="progress-header">
+            <img src="public/Page1-2.webp" alt="" class="portrait" data-part="PART III" data-page="Page 3" data-current="2" data-max="4">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 50%"></div>
+              <span class="progress-text">2/4</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 4</div>
+          <div class="progress-header">
+            <img src="public/Page1-0.webp" alt="" class="portrait" data-part="PART III" data-page="Page 4" data-current="0" data-max="2">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 0%"></div>
+              <span class="progress-text">0/2</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 5</div>
+          <div class="progress-header">
+            <img src="public/Page1-3.webp" alt="" class="portrait" data-part="PART III" data-page="Page 5" data-current="3" data-max="5">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 60%"></div>
+              <span class="progress-text">3/5</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="page-caption">PAGE 6</div>
+          <div class="progress-header">
+            <img src="public/Page1-1.webp" alt="" class="portrait" data-part="PART III" data-page="Page 6" data-current="1" data-max="4">
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 25%"></div>
+              <span class="progress-text">1/4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
           </div>
         </div>
         <div class="progress-item">
@@ -408,6 +534,7 @@
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
     <span class="lightbox-next">&#10095;</span>
+    <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
     <div class="lightbox-content">
       <img src="" alt="" class="lightbox-img" id="lightbox-img">
     </div>
@@ -426,13 +553,26 @@
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
+    const lightboxFillup = document.getElementById('lightbox-fillup');
 
     let currentIndex = 0;
     const images = Array.from(portraits).map(p => ({
       src: p.src,
       part: p.dataset.part,
-      page: p.dataset.page
+      page: p.dataset.page,
+      current: parseInt(p.dataset.current),
+      max: parseInt(p.dataset.max)
     }));
+
+    function updateFillupButton() {
+      const current = images[currentIndex].current;
+      const max = images[currentIndex].max;
+      if (current >= max) {
+        lightboxFillup.style.display = 'none';
+      } else {
+        lightboxFillup.style.display = 'block';
+      }
+    }
 
     function openLightbox(index) {
       currentIndex = index;
@@ -440,6 +580,7 @@
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
       resetZoom();
+      updateFillupButton();
       lightbox.classList.add('active');
     }
 
@@ -452,6 +593,8 @@
       lightboxImg.src = images[currentIndex].src;
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
+      resetZoom();
+      updateFillupButton();
     }
 
     function showNext() {
@@ -459,7 +602,42 @@
       lightboxImg.src = images[currentIndex].src;
       lightboxPart.textContent = images[currentIndex].part;
       lightboxPage.textContent = images[currentIndex].page;
+      resetZoom();
+      updateFillupButton();
     }
+
+    function fillUp() {
+      const portrait = portraits[currentIndex];
+      const current = images[currentIndex].current;
+      const max = images[currentIndex].max;
+      
+      if (current >= max) return;
+      
+      const newCurrent = current + 1;
+      images[currentIndex].current = newCurrent;
+      
+      portrait.dataset.current = newCurrent;
+      
+      const newPercent = (newCurrent / max) * 100;
+      const progressBar = portrait.parentElement.querySelector('.progress-bar');
+      const progressText = portrait.parentElement.querySelector('.progress-text');
+      
+      progressBar.style.width = newPercent + '%';
+      progressText.textContent = newCurrent + '/' + max;
+      
+      let newSrc = 'public/Page1-' + newCurrent + '.webp';
+      if (newCurrent === max) {
+        newSrc = 'public/Page1-full.webp';
+      }
+      
+      portrait.src = newSrc;
+      lightboxImg.src = newSrc;
+      images[currentIndex].src = newSrc;
+      
+      updateFillupButton();
+    }
+
+    lightboxFillup.addEventListener('click', fillUp);
 
     portraits.forEach((portrait, index) => {
       portrait.addEventListener('click', () => openLightbox(index));
@@ -507,6 +685,7 @@
       panX = 0;
       panY = 0;
       lightboxImg.classList.remove('zoomed');
+      lightboxFillup.classList.remove('hidden');
       updateTransform();
     }
 
@@ -523,6 +702,7 @@
       }
       if (currentZoom > 1) {
         lightboxImg.classList.add('zoomed');
+        lightboxFillup.classList.add('hidden');
       }
       updateTransform();
     });
@@ -572,6 +752,7 @@
           } else {
             lightboxImg.classList.add('zoomed');
             currentZoom = 2;
+            lightboxFillup.classList.add('hidden');
             updateTransform();
           }
         }
@@ -643,6 +824,7 @@
         } else {
           lightboxImg.classList.add('zoomed');
           currentZoom = 2;
+          lightboxFillup.classList.add('hidden');
           updateTransform();
         }
       }
