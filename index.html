@@ -1423,6 +1423,15 @@
     });
 
     lightbox.addEventListener('touchend', (e) => {
+      // Don't trigger zoom if touching the button, arrows, or close
+      if (e.target === lightboxFillup || 
+          e.target === lightboxClose || 
+          e.target === lightboxPrev || 
+          e.target === lightboxNext ||
+          lightboxFillup.contains(e.target)) {
+        return;
+      }
+      
       const touchDuration = Date.now() - touchStartTime;
       if (touchDuration < 300 && !touchDragged && e.changedTouches.length === 1) {
         if (lightboxImg.classList.contains('zoomed')) {
