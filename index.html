@@ -1347,17 +1347,6 @@
       if (isDragging) {
         isDragging = false;
         lightboxImg.style.cursor = 'grab';
-        if (!dragged) {
-          if (lightboxImg.classList.contains('zoomed')) {
-            resetZoom();
-          } else {
-            lightboxImg.classList.add('zoomed');
-            currentZoom = 2;
-            lightboxFillup.style.display = 'none';
-            lightboxPage.style.display = 'none';
-            updateTransform();
-          }
-        }
       }
     });
 
@@ -1422,6 +1411,8 @@
       }
     });
 
+    let lastTapTime = 0;
+
     lightbox.addEventListener('touchend', (e) => {
       // Don't trigger zoom if touching the button, arrows, or close
       if (e.target === lightboxFillup || 
@@ -1434,15 +1425,20 @@
       
       const touchDuration = Date.now() - touchStartTime;
       if (touchDuration < 300 && !touchDragged && e.changedTouches.length === 1) {
-        if (lightboxImg.classList.contains('zoomed')) {
-          resetZoom();
-        } else {
-          lightboxImg.classList.add('zoomed');
-          currentZoom = 2;
-          lightboxFillup.style.display = 'none';
-          lightboxPage.style.display = 'none';
-          updateTransform();
+        const now = Date.now();
+        if (now - lastTapTime < 300) {
+          // Double tap detected
+          if (lightboxImg.classList.contains('zoomed')) {
+            resetZoom();
+          } else {
+            lightboxImg.classList.add('zoomed');
+            currentZoom = 2;
+            lightboxFillup.style.display = 'none';
+            lightboxPage.style.display = 'none';
+            updateTransform();
+          }
         }
+        lastTapTime = now;
       }
     });
 
