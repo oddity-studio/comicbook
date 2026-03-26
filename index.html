@@ -301,6 +301,16 @@
       z-index: 10;
     }
 
+    .futuristic-btn:active {
+      animation: bounce 0.3s ease;
+    }
+
+    @keyframes bounce {
+      0% { transform: skewX(-10deg) scale(1); }
+      50% { transform: skewX(-10deg) scale(0.9); }
+      100% { transform: skewX(-10deg) scale(1); }
+    }
+
     .futuristic-btn.fire {
       border-color: #ffeca8;
       background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.8), rgba(240, 96, 29, 0.8));
