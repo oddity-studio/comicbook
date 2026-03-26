@@ -613,6 +613,66 @@
       }
     }
 
+    @keyframes swipeLeftOut {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes swipeLeftIn {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes swipeRightOut {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes swipeRightIn {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .lightbox-img.swipe-left-out {
+      animation: swipeLeftOut 0.3s ease-out forwards;
+    }
+
+    .lightbox-img.swipe-left-in {
+      animation: swipeLeftIn 0.3s ease-out forwards;
+    }
+
+    .lightbox-img.swipe-right-out {
+      animation: swipeRightOut 0.3s ease-out forwards;
+    }
+
+    .lightbox-img.swipe-right-in {
+      animation: swipeRightIn 0.3s ease-out forwards;
+    }
+
     .lightbox-close {
       position: absolute;
       top: 20px;
@@ -647,6 +707,13 @@
     .lightbox-next:hover,
     .lightbox-close:hover {
       color: #ff8a30;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-prev,
+      .lightbox-next {
+        display: none;
+      }
     }
 
     .lightbox-fillup {
@@ -1083,7 +1150,7 @@
     const maxZoom = 2;
     const minZoom = 1;
 
-    function openLightbox(partIndex, pageIndex) {
+    function openLightbox(partIndex, pageIndex, direction) {
       currentPartIndex = partIndex;
       currentPageIndex = pageIndex;
       const page = data.parts[partIndex].pages[pageIndex];
@@ -1101,20 +1168,31 @@
         src = `public/Page${page.order}-0.webp`;
       }
       
-      lightboxImg.src = src;
+      // Remove any existing animation classes
+      lightboxImg.classList.remove('animating', 'swipe-left-out', 'swipe-left-in', 'swipe-right-out', 'swipe-right-in');
+      
+      if (direction) {
+        // Swipe animation
+        lightboxImg.classList.add(`swipe-${direction}-in`);
+        lightboxImg.src = src;
+        setTimeout(() => {
+          lightboxImg.classList.remove(`swipe-${direction}-in`);
+        }, 300);
+      } else {
+        // Initial open - just set src
+        lightboxImg.src = src;
+        void lightboxImg.offsetWidth;
+        lightboxImg.classList.add('animating');
+        setTimeout(() => {
+          lightboxImg.classList.remove('animating');
+        }, 500);
+      }
+      
       lightboxPart.textContent = '';
       lightboxPage.textContent = `Page ${page.order}`;
       resetZoom();
       updateFillupButton();
       lightbox.classList.add('active');
-      
-      // Play zoom-in animation
-      lightboxImg.classList.remove('animating');
-      void lightboxImg.offsetWidth;
-      lightboxImg.classList.add('animating');
-      setTimeout(() => {
-        lightboxImg.classList.remove('animating');
-      }, 500);
     }
 
     function closeLightbox() {
@@ -1124,13 +1202,13 @@
     function showPrev() {
       const part = data.parts[currentPartIndex];
       currentPageIndex = (currentPageIndex - 1 + part.pages.length) % part.pages.length;
-      openLightbox(currentPartIndex, currentPageIndex);
+      openLightbox(currentPartIndex, currentPageIndex, 'left');
     }
 
     function showNext() {
       const part = data.parts[currentPartIndex];
       currentPageIndex = (currentPageIndex + 1) % part.pages.length;
-      openLightbox(currentPartIndex, currentPageIndex);
+      openLightbox(currentPartIndex, currentPageIndex, 'right');
     }
 
     function updateFillupButton() {
