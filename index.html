@@ -239,7 +239,7 @@
     }
 
     .futuristic-btn {
-      border: 1px solid green;
+      border: 1px solid #888;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transform: skewX(-10deg);
@@ -259,6 +259,14 @@
       animation: breath2 2s 0.5s infinite alternate;
       transition: all 0.2s ease;
       cursor: pointer;
+    }
+
+    .futuristic-btn.fire {
+      border-color: #ffeca8;
+    }
+
+    .futuristic-btn.ice {
+      border-color: #a8ecff;
     }
 
     .futuristic-btn:before {
@@ -710,7 +718,7 @@
 
         if (part.locked) {
           const lockedBtn = document.createElement('button');
-          lockedBtn.className = 'futuristic-btn ice';
+          lockedBtn.className = 'futuristic-btn';
           lockedBtn.id = `unlock-btn-${part.order}`;
           lockedBtn.textContent = 'LOCKED';
           lockedBtn.disabled = true;
