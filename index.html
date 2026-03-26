@@ -478,8 +478,7 @@
       opacity: 1;
     }
 
-    .lightbox-overlay.animating::after {
-      content: '';
+    .scanline {
       position: absolute;
       top: 0;
       left: 0;
@@ -487,6 +486,13 @@
       height: 3px;
       background: linear-gradient(90deg, transparent, #ff8a30, transparent);
       box-shadow: 0 0 20px 10px rgba(255, 138, 48, 0.5);
+      opacity: 0;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .scanline.animating {
+      opacity: 1;
       animation: scanline 0.3s ease-in-out forwards;
     }
 
@@ -723,6 +729,7 @@
       <div class="lightbox-content">
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
         <img src="" alt="" class="lightbox-overlay" id="lightbox-overlay">
+        <div class="scanline" id="scanline"></div>
       </div>
       <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
       <div class="lightbox-info">
@@ -944,6 +951,7 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const scanline = document.getElementById('scanline');
     const lightboxPart = document.getElementById('lightbox-part');
     const lightboxPage = document.getElementById('lightbox-page');
     const lightboxClose = document.querySelector('.lightbox-close');
@@ -1072,15 +1080,19 @@
       img.onload = () => {
         lightboxOverlay.src = newSrc;
         lightboxOverlay.classList.remove('animating');
+        scanline.classList.remove('animating');
         
         // Force reflow to restart animation
         void lightboxOverlay.offsetWidth;
+        void scanline.offsetWidth;
         
         lightboxOverlay.classList.add('animating');
+        scanline.classList.add('animating');
         
         setTimeout(() => {
           lightboxImg.src = newSrc;
           lightboxOverlay.classList.remove('animating');
+          scanline.classList.remove('animating');
           lightboxOverlay.src = '';
           if (callback) callback();
         }, 300);
