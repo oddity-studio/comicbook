@@ -46,7 +46,7 @@
     .container {
       width: 100%;
       max-width: 400px;
-      padding: 40px 20px;
+      padding: 10vh 20px 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -823,10 +823,6 @@
     function render() {
       const container = document.getElementById('container');
       container.innerHTML = '';
-
-      const spacer = document.createElement('div');
-      spacer.style.height = '10vh';
-      container.appendChild(spacer);
 
       data.parts.forEach((part, partIndex) => {
         if (partIndex > 0) {
