@@ -267,6 +267,19 @@
       transition: width 0.3s ease;
     }
 
+    .progress-bar.complete {
+      animation: cyanPulse 2s infinite;
+    }
+
+    @keyframes cyanPulse {
+      0%, 100% {
+        box-shadow: 0 0 5px 2px rgba(0, 255, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 15px 6px rgba(0, 255, 255, 0.6);
+      }
+    }
+
     .progress-text {
       position: absolute;
       right: 10px;
@@ -897,6 +910,9 @@
             bar.className = 'progress-bar';
             const percent = page.cap > 0 ? (page.completion / page.cap) * 100 : 0;
             bar.style.width = `${percent}%`;
+            if (page.completion >= page.cap) {
+              bar.classList.add('complete');
+            }
             barContainer.appendChild(bar);
 
             const text = document.createElement('span');
@@ -1072,6 +1088,10 @@
       const percent = (page.completion / max) * 100;
       barEl.style.width = `${percent}%`;
       textEl.textContent = `${page.completion}/${max}`;
+
+      if (page.completion >= max) {
+        barEl.classList.add('complete');
+      }
 
       if (page.completion >= max) {
         imgEl.src = `public/Page${page.order}-icon-full.webp`;
