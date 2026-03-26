@@ -899,6 +899,11 @@
       return { start: 0, end: 0 };
     }
 
+    function toRoman(num) {
+      const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+      return romanNumerals[num - 1] || num;
+    }
+
     function render() {
       const container = document.getElementById('container');
       container.innerHTML = '';
@@ -1015,7 +1020,7 @@
              playBtn.className = 'futuristic-btn ice';
              playBtn.style.zoom = '0.9';
              playBtn.disabled = true;
-             playBtn.textContent = `PLAY PART ${part.order}`;
+             playBtn.textContent = `PLAY PART ${toRoman(part.order)}`;
              partDiv.appendChild(playBtn);
            }
         }
