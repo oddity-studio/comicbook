@@ -459,6 +459,55 @@
       position: relative;
     }
 
+    .lightbox-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border-radius: 8px;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    .lightbox-overlay.animating {
+      animation: scanlineReveal 0.3s ease-in-out forwards;
+      opacity: 1;
+    }
+
+    .lightbox-overlay.animating::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #3080ff, transparent);
+      box-shadow: 0 0 20px 10px rgba(48, 128, 255, 0.5);
+      animation: scanline 0.3s ease-in-out forwards;
+    }
+
+    @keyframes scanlineReveal {
+      0% {
+        clip-path: inset(0 0 100% 0);
+      }
+      100% {
+        clip-path: inset(0 0 0% 0);
+      }
+    }
+
+    @keyframes scanline {
+      0% {
+        top: 0;
+      }
+      100% {
+        top: 100%;
+      }
+    }
+
     .lightbox-center {
       display: flex;
       flex-direction: column;
@@ -673,6 +722,7 @@
     <div class="lightbox-center">
       <div class="lightbox-content">
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <img src="" alt="" class="lightbox-overlay" id="lightbox-overlay">
       </div>
       <button class="lightbox-fillup" id="lightbox-fillup">FILL UP</button>
       <div class="lightbox-info">
@@ -893,6 +943,7 @@
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
     const lightboxPart = document.getElementById('lightbox-part');
     const lightboxPage = document.getElementById('lightbox-page');
     const lightboxClose = document.querySelector('.lightbox-close');
@@ -979,10 +1030,12 @@
       if (current >= max) {
         if (page.showColor) {
           page.showColor = false;
-          lightboxImg.src = `public/Page${page.order}-${current}.webp`;
+          const newSrc = `public/Page${page.order}-${current}.webp`;
+          scanlineTransition(newSrc);
         } else {
           page.showColor = true;
-          lightboxImg.src = `public/Page${page.order}-full.webp`;
+          const newSrc = `public/Page${page.order}-full.webp`;
+          scanlineTransition(newSrc);
         }
         updateFillupButton();
         return;
@@ -1000,13 +1053,32 @@
 
       if (page.completion >= max) {
         imgEl.src = `public/Page${page.order}-icon-full.webp`;
-        lightboxImg.src = `public/Page${page.order}-${page.completion}.webp`;
+        const newSrc = `public/Page${page.order}-${page.completion}.webp`;
+        scanlineTransition(newSrc);
       } else {
-        lightboxImg.src = `public/Page${page.order}-${page.completion}.webp`;
+        const newSrc = `public/Page${page.order}-${page.completion}.webp`;
+        scanlineTransition(newSrc);
       }
 
       updateFillupButton();
       checkUnlocks();
+    }
+
+    function scanlineTransition(newSrc, callback) {
+      lightboxOverlay.src = newSrc;
+      lightboxOverlay.classList.remove('animating');
+      
+      // Force reflow to restart animation
+      void lightboxOverlay.offsetWidth;
+      
+      lightboxOverlay.classList.add('animating');
+      
+      setTimeout(() => {
+        lightboxImg.src = newSrc;
+        lightboxOverlay.classList.remove('animating');
+        lightboxOverlay.src = '';
+        if (callback) callback();
+      }, 300);
     }
 
     function updateTransform() {
