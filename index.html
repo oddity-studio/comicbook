@@ -818,7 +818,7 @@
           }
         } else if (!part.locked) {
           const partStatus = getPartStatus(part);
-          const existingPlayBtn = document.querySelector(`#part-${part.order} .play-btn`);
+          const existingPlayBtn = document.querySelector(`#part-${part.order} .futuristic-btn`);
           if (partStatus === 'complete' && !existingPlayBtn) {
             render();
           } else if (partStatus !== 'complete' && existingPlayBtn) {
