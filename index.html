@@ -585,6 +585,9 @@
       transition: transform 0.2s ease;
       transform-origin: center center;
       cursor: zoom-in;
+    }
+
+    .lightbox-img.animating {
       animation: imgZoomIn 0.5s ease-out forwards;
     }
 
@@ -1089,6 +1092,14 @@
       resetZoom();
       updateFillupButton();
       lightbox.classList.add('active');
+      
+      // Play zoom-in animation
+      lightboxImg.classList.remove('animating');
+      void lightboxImg.offsetWidth;
+      lightboxImg.classList.add('animating');
+      setTimeout(() => {
+        lightboxImg.classList.remove('animating');
+      }, 500);
     }
 
     function closeLightbox() {
