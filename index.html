@@ -247,8 +247,14 @@
 
     .progress-item:hover .portrait {
       transform: scale(1.1);
-      border-color: #3080ff;
-      box-shadow: 0 0 15px rgba(48, 128, 255, 0.6);
+      border-color: #444;
+      box-shadow: 0 0 10px rgba(100, 100, 100, 0.4);
+    }
+
+    .progress-item.complete:hover .portrait {
+      transform: scale(1.15);
+      border-color: #00ffcc;
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
     }
 
     .progress-bar-container {
@@ -1267,6 +1273,10 @@
 
       if (page.completion >= max) {
         barEl.classList.add('complete');
+        const progressItem = imgEl.closest('.progress-item');
+        if (progressItem) {
+          progressItem.classList.add('complete');
+        }
       }
 
       if (page.completion >= max) {
