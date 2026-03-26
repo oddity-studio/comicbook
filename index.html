@@ -799,7 +799,8 @@
            const partStatus = getPartStatus(part);
            if (partStatus === 'complete') {
              const playBtn = document.createElement('button');
-             playBtn.className = 'futuristic-btn fire';
+             playBtn.className = 'futuristic-btn ice';
+             playBtn.style.zoom = '0.7';
              playBtn.disabled = true;
              playBtn.textContent = `PLAY PART ${part.order}`;
              partDiv.appendChild(playBtn);
