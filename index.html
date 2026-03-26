@@ -198,12 +198,13 @@
       border: 2px solid #444;
       object-fit: cover;
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .portrait:hover {
+    .progress-item:hover .portrait {
       transform: scale(1.1);
-      border-color: #d946ef;
+      border-color: #3080ff;
+      box-shadow: 0 0 15px rgba(48, 128, 255, 0.6);
     }
 
     .progress-bar-container {
