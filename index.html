@@ -95,6 +95,19 @@
       gap: 12px;
     }
 
+    .part-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+    }
+
     .progress-item {
       display: flex;
       flex-direction: column;
@@ -716,6 +729,14 @@
         const partDiv = document.createElement('div');
         partDiv.className = 'part-section';
         partDiv.id = `part-${part.order}`;
+        partDiv.style.position = 'relative';
+
+        if (partIndex === 0) {
+          const bgImg = document.createElement('img');
+          bgImg.src = 'public/Part1-back.webp';
+          bgImg.className = 'part-bg';
+          partDiv.appendChild(bgImg);
+        }
 
         const titleContainer = document.createElement('div');
         titleContainer.style.textAlign = 'center';
