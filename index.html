@@ -276,13 +276,14 @@
     .progress-bar.complete::after {
       content: '';
       position: absolute;
-      top: 0;
+      top: -50%;
       left: -30%;
       width: 30%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.6), transparent);
+      height: 200%;
+      background: linear-gradient(135deg, transparent 20%, rgba(0, 255, 255, 0.6) 50%, transparent 80%);
       mix-blend-mode: screen;
       animation: streak 3s ease-in-out infinite;
+      transform: skewX(-15deg);
     }
 
     @keyframes cyanPulse {
