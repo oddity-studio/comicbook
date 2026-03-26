@@ -1424,6 +1424,24 @@
         return;
       }
       
+      if (e.changedTouches.length === 1 && currentZoom <= 1) {
+        const deltaX = e.changedTouches[0].clientX - lastTouchX;
+        const deltaY = e.changedTouches[0].clientY - lastTouchY;
+        
+        // Swipe detection - horizontal swipe > 50px
+        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          resetZoom();
+          if (deltaX < 0) {
+            // Swipe left - next page
+            showNext();
+          } else {
+            // Swipe right - previous page
+            showPrev();
+          }
+          return;
+        }
+      }
+      
       const touchDuration = Date.now() - touchStartTime;
       if (touchDuration < 300 && !touchDragged && e.changedTouches.length === 1) {
         const now = Date.now();
