@@ -1255,6 +1255,10 @@
     });
 
     lightboxFillup.addEventListener('click', fillUp);
+    lightboxFillup.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      fillUp();
+    });
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', showPrev);
     lightboxNext.addEventListener('click', showNext);
