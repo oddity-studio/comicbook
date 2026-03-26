@@ -1065,20 +1065,26 @@
     }
 
     function scanlineTransition(newSrc, callback) {
-      lightboxOverlay.src = newSrc;
-      lightboxOverlay.classList.remove('animating');
+      // Pre-load the image first
+      const img = new Image();
+      img.src = newSrc;
       
-      // Force reflow to restart animation
-      void lightboxOverlay.offsetWidth;
-      
-      lightboxOverlay.classList.add('animating');
-      
-      setTimeout(() => {
-        lightboxImg.src = newSrc;
+      img.onload = () => {
+        lightboxOverlay.src = newSrc;
         lightboxOverlay.classList.remove('animating');
-        lightboxOverlay.src = '';
-        if (callback) callback();
-      }, 300);
+        
+        // Force reflow to restart animation
+        void lightboxOverlay.offsetWidth;
+        
+        lightboxOverlay.classList.add('animating');
+        
+        setTimeout(() => {
+          lightboxImg.src = newSrc;
+          lightboxOverlay.classList.remove('animating');
+          lightboxOverlay.src = '';
+          if (callback) callback();
+        }, 300);
+      };
     }
 
     function updateTransform() {
