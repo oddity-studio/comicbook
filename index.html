@@ -219,6 +219,11 @@
       letter-spacing: 1px;
       font-weight: bold;
       z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    .progress-caption.filled {
+      color: #3a3a3a;
     }
 
     .progress-header {
@@ -973,6 +978,10 @@
 
             const barCaption = document.createElement('span');
             barCaption.className = 'progress-caption';
+            barCaption.id = `page-caption-${partIndex}-${pageIndex}`;
+            if (page.completion > 0) {
+              barCaption.classList.add('filled');
+            }
             barCaption.textContent = `PAGE ${page.order}`;
             barContainer.appendChild(barCaption);
 
@@ -1163,10 +1172,15 @@
       const textEl = document.getElementById(`page-text-${currentPartIndex}-${currentPageIndex}`);
       const barEl = imgEl.parentElement.querySelector('.progress-bar');
       const barContainerEl = imgEl.parentElement.querySelector('.progress-bar-container');
+      const captionEl = imgEl.parentElement.querySelector('.progress-caption');
 
       const percent = (page.completion / max) * 100;
       barEl.style.width = `${percent}%`;
       textEl.textContent = `${page.completion}/${max}`;
+
+      if (page.completion > 0) {
+        captionEl.classList.add('filled');
+      }
 
       if (page.completion >= max) {
         barEl.classList.add('complete');
